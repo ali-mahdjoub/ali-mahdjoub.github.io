@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ali Mahdjoub — Portfolio</title>
   <meta name="description" content="Portfolio of Ali Mahdjoub — Android Developer and Software Engineer." />
+  <meta name="theme-color" content="#f59e0b" />
+  <meta property="og:title" content="Ali Mahdjoub — Android Developer" />
+  <meta property="og:description" content="Android apps with clean architecture, smooth UI, and great performance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="img/ali.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -45,6 +50,11 @@
     @keyframes floaty {0%{transform:translate(0,0) rotate(0)} 50%{transform:translate(2vmax,-2vmax) rotate(10deg)} 100%{transform:translate(0,0) rotate(0)}}
     .blob{animation:floaty 18s ease-in-out infinite alternate}
 
+    @media (prefers-reduced-motion: reduce){
+      .blob{animation:none}
+      .sparkle{display:none}
+    }
+
     /* Header / Nav */
     header{
       position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
@@ -57,7 +67,7 @@
     .brand .logo span{font-weight:900}
     .nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0}
     .nav a{opacity:.9; font-weight:600}
-    .nav a.active{color:var(--accent)}
+    .nav a.active, .nav a[aria-current="true"]{color:var(--accent)}
     .btn{
       display:inline-flex; align-items:center; gap:10px; padding:10px 16px; border-radius:12px; font-weight:700;
       background:linear-gradient(135deg,var(--brand),var(--brand-2)); border:0; color:black; box-shadow:var(--shadow);
@@ -146,24 +156,27 @@
       .skills, .projects{grid-template-columns:1fr}
       h1{font-size:36px}
     }
+
+    /* Focus visibility */
+    :focus-visible{outline:3px solid var(--accent); outline-offset:3px}
   </style>
 </head>
 <body>
   <!-- Animated BG blobs -->
-  <div class="blob one"></div>
-  <div class="blob two"></div>
-  <div class="blob three"></div>
+  <div class="blob one" aria-hidden="true"></div>
+  <div class="blob two" aria-hidden="true"></div>
+  <div class="blob three" aria-hidden="true"></div>
 
   <!-- Header / Navigation -->
   <header>
     <div class="container nav">
-      <a href="#home" class="brand">
-        <div class="logo"><span>AM</span></div>
+      <a href="#home" class="brand" aria-label="Go to Home">
+        <div class="logo" aria-hidden="true"><span>AM</span></div>
         <span>Ali <span style="opacity:.8">Mahdjoub</span></span>
       </a>
-      <nav>
+      <nav aria-label="Primary">
         <ul id="navLinks">
-          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#home" class="active" aria-current="true">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -171,43 +184,43 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <button class="menu-btn btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <button class="menu-btn btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
     </div>
   </header>
 
   <!-- Hero -->
   <main id="home" class="hero container">
     <div class="hero-card" id="heroCard">
-      <div class="sparkle" id="sparkle"></div>
+      <div class="sparkle" id="sparkle" aria-hidden="true"></div>
       <div class="hero-grid">
         <div>
-          <span class="chip">ANDROID • JAVA • KOTLIN</span>
+          <span class="chip" aria-label="Tech stack">ANDROID • JAVA • KOTLIN</span>
           <h1>Hi, I'm <span class="gradient-text">Ali Mahdjoub</span> — Android Developer crafting smooth, modern mobile apps.</h1>
           <p class="subtitle">I build native Android experiences with clean architecture and delightful UI. I ship features end‑to‑end — from data models and APIs to polished animations.</p>
           <div class="hero-cta">
             <a class="btn" href="#projects">See my work</a>
-            <a class="btn" style="background:linear-gradient(135deg,var(--accent),var(--brand))" href="cv.pdf" download>Download CV</a>
+            <a class="btn" style="background:linear-gradient(135deg,var(--accent),var(--brand))" href="cv.pdf" download aria-label="Download my CV as PDF">Download CV</a>
           </div>
-          <div class="stats">
-            <div class="stat"><b>10+</b><br><span class="muted">Personal/School Projects</span></div>
-            <div class="stat"><b>2</b><br><span class="muted">Internships</span></div>
-            <div class="stat"><b>5th year</b><br><span class="muted">CS @ CESI EXIA (DZ)</span></div>
+          <div class="stats" role="list" aria-label="Highlights">
+            <div class="stat" role="listitem"><b>10+</b><br><span class="muted">Personal/School Projects</span></div>
+            <div class="stat" role="listitem"><b>2</b><br><span class="muted">Internships</span></div>
+            <div class="stat" role="listitem"><b>5th year</b><br><span class="muted">CS @ CESI EXIA (DZ)</span></div>
           </div>
         </div>
-        <div class="portrait" id="portrait" aria-label="Profile portrait placeholder"></div>
+        <div class="portrait" id="portrait" aria-label="Profile portrait"></div>
       </div>
     </div>
   </main>
 
   <!-- About -->
-  <section id="about">
+  <section id="about" aria-labelledby="about-title">
     <div class="container">
       <div class="section-head">
         <div>
           <div class="kicker">ABOUT</div>
-          <h2>About Me</h2>
+          <h2 id="about-title">About Me</h2>
         </div>
-        <label class="btn secondary" for="photoInput">Upload my photo</label>
+        <label class="btn secondary" for="photoInput" role="button" aria-controls="photoInput">Upload my photo</label>
       </div>
       <input id="photoInput" type="file" accept="image/*" style="display:none" />
       <div class="about-grid">
@@ -217,14 +230,14 @@
             I also enjoy data modeling and SQL, and I'm expanding into Python for tooling.
           </p>
           <ul class="list">
-            <li><span class="tick">✓</span> Native Android (Java & Kotlin)</li>
-            <li><span class="tick">✓</span> Jetpack • Retrofit • Room</li>
-            <li><span class="tick">✓</span> Unit/UI tests • Espresso/Mockito</li>
-            <li><span class="tick">✓</span> Agile sprints with Trello/Jira</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Native Android (Java & Kotlin)</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Jetpack • Retrofit • Room</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Unit/UI tests • Espresso/Mockito</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Agile sprints with Trello/Jira</li>
           </ul>
         </div>
         <div class="card" style="display:grid; grid-template-columns:120px 1fr; gap:14px; align-items:center">
-          <img id="aboutPhoto" src="img/ali.jpg" alt="Ali Mahdjoub portrait" style="width:120px; height:120px; object-fit:cover; border-radius:18px; border:1px solid rgba(255,255,255,.1)">
+          <img id="aboutPhoto" src="img/ali.jpg" alt="Portrait of Ali Mahdjoub" loading="lazy" width="120" height="120" style="width:120px; height:120px; object-fit:cover; border-radius:18px; border:1px solid rgba(255,255,255,.1)">
           <div>
             <p>Education: 5th‑year Computer Science student at CESI EXIA (Algeria). Open to remote collaborations and internships.</p>
             <p>Languages: English • French • Arabic. Based in Algeria.</p>
@@ -235,58 +248,58 @@
   </section>
 
   <!-- Skills -->
-  <section id="skills">
+  <section id="skills" aria-labelledby="skills-title">
     <div class="container">
       <div class="section-head">
         <div>
           <div class="kicker">STACK</div>
-          <h2>Skills</h2>
+          <h2 id="skills-title">Skills</h2>
         </div>
         <span style="color:var(--muted)">Always learning 🚀</span>
       </div>
       <div class="skills">
         <div class="skill">
           <b>Android (Java/Kotlin)</b>
-          <div class="bar"><i style="width:88%"></i></div>
+          <div class="bar" aria-label="Android proficiency 88%"><i style="width:88%"></i></div>
         </div>
         <div class="skill">
           <b>Jetpack (ViewModel, Navigation, Room)</b>
-          <div class="bar"><i style="width:80%"></i></div>
+          <div class="bar" aria-label="Jetpack proficiency 80%"><i style="width:80%"></i></div>
         </div>
         <div class="skill">
           <b>Clean Architecture • MVVM</b>
-          <div class="bar"><i style="width:78%"></i></div>
+          <div class="bar" aria-label="Clean Architecture proficiency 78%"><i style="width:78%"></i></div>
         </div>
         <div class="skill">
           <b>REST APIs • Retrofit</b>
-          <div class="bar"><i style="width:82%"></i></div>
+          <div class="bar" aria-label="APIs proficiency 82%"><i style="width:82%"></i></div>
         </div>
         <div class="skill">
           <b>SQLite • Room • SQL</b>
-          <div class="bar"><i style="width:75%"></i></div>
+          <div class="bar" aria-label="Databases proficiency 75%"><i style="width:75%"></i></div>
         </div>
         <div class="skill">
           <b>Git • GitHub • CI basics</b>
-          <div class="bar"><i style="width:72%"></i></div>
+          <div class="bar" aria-label="Git proficiency 72%"><i style="width:72%"></i></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects">
+  <section id="projects" aria-labelledby="projects-title">
     <div class="container">
       <div class="section-head">
         <div>
           <div class="kicker">WORK</div>
-          <h2>Featured Projects</h2>
+          <h2 id="projects-title">Featured Projects</h2>
         </div>
-        <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
       <div class="projects">
         <article class="card project">
           <div class="thumb">
-            <img alt="Hotel search app mock" src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23f97316'/><stop offset='1' stop-color='%23fde047'/></linearGradient></defs><rect width='1600' height='1000' fill='url(%23g)'/><g fill='white' fill-opacity='.85'><rect x='180' y='180' rx='30' width='1240' height='120'/><rect x='180' y='340' rx='30' width='880' height='120'/><rect x='1080' y='340' rx='30' width='340' height='120'/><rect x='180' y='500' rx='30' width='1240' height='320'/></g></svg>">
+            <img alt="Hotel search app mock" loading="lazy" src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23f97316'/><stop offset='1' stop-color='%23fde047'/></linearGradient></defs><rect width='1600' height='1000' fill='url(%23g)'/><g fill='white' fill-opacity='.85'><rect x='180' y='180' rx='30' width='1240' height='120'/><rect x='180' y='340' rx='30' width='880' height='120'/><rect x='1080' y='340' rx='30' width='340' height='120'/><rect x='180' y='500' rx='30' width='1240' height='320'/></g></svg>">
           </div>
           <h3>Hotel Finder (Amadeus API)</h3>
           <p class="subtitle">Android app like Skyscanner for hotels: city autocomplete, hotels with price & photos.</p>
@@ -296,7 +309,7 @@
         </article>
         <article class="card project">
           <div class="thumb">
-            <img alt="Timer app mock" src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><linearGradient id='g2' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23f59e0b'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='1600' height='1000' fill='url(%23g2)'/><g fill='white' fill-opacity='.9'><circle cx='400' cy='500' r='180'/><rect x='700' y='380' rx='30' width='720' height='80'/><rect x='700' y='500' rx='30' width='580' height='80'/></g></svg>">
+            <img alt="Timer app mock" loading="lazy" src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><linearGradient id='g2' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23f59e0b'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='1600' height='1000' fill='url(%23g2)'/><g fill='white' fill-opacity='.9'><circle cx='400' cy='500' r='180'/><rect x='700' y='380' rx='30' width='720' height='80'/><rect x='700' y='500' rx='30' width='580' height='80'/></g></svg>">
           </div>
           <h3>Timer App</h3>
           <p class="subtitle">Multiple real‑time timers, background service, notifications, and persistent storage.</p>
@@ -306,7 +319,7 @@
         </article>
         <article class="card project">
           <div class="thumb">
-            <img alt="Agency app mock" src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><linearGradient id='g3' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23fde047'/><stop offset='1' stop-color='%23f59e0b'/></linearGradient></defs><rect width='1600' height='1000' fill='url(%23g3)'/><g fill='white' fill-opacity='.85'><rect x='220' y='220' rx='24' width='1160' height='120'/><rect x='220' y='380' rx='24' width='860' height='300'/><rect x='1100' y='380' rx='24' width='280' height='300'/></g></svg>">
+            <img alt="Agency app mock" loading="lazy" src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><linearGradient id='g3' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23fde047'/><stop offset='1' stop-color='%23f59e0b'/></linearGradient></defs><rect width='1600' height='1000' fill='url(%23g3)'/><g fill='white' fill-opacity='.85'><rect x='220' y='220' rx='24' width='1160' height='120'/><rect x='220' y='380' rx='24' width='860' height='300'/><rect x='1100' y='380' rx='24' width='280' height='300'/></g></svg>">
           </div>
           <h3>Travel Agency Manager</h3>
           <p class="subtitle">Prototype covering clients, services, invoices, HR, events — inspired by OPERA system.</p>
@@ -319,14 +332,14 @@
   </section>
 
   <!-- Resume / Experience -->
-  <section id="resume">
+  <section id="resume" aria-labelledby="resume-title">
     <div class="container">
       <div class="section-head">
         <div>
           <div class="kicker">RESUME</div>
-          <h2>Experience</h2>
+          <h2 id="resume-title">Experience</h2>
         </div>
-        <a class="btn" href="cv.pdf" download>Download PDF</a>
+        <a class="btn" href="cv.pdf" download aria-label="Download my resume as PDF">Download PDF</a>
       </div>
       <div class="card timeline">
         <div class="tl-item">
@@ -349,20 +362,26 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" aria-labelledby="contact-title">
     <div class="container">
       <div class="section-head">
         <div>
           <div class="kicker">CONTACT</div>
-          <h2>Let's work together</h2>
+          <h2 id="contact-title">Let's work together</h2>
         </div>
         <span style="color:var(--muted)">Response within 24h</span>
       </div>
       <div class="card">
         <form id="contactForm">
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
-            <input required name="name" placeholder="Your name" />
-            <input required type="email" name="email" placeholder="Your email" />
+            <label>
+              <span class="sr-only">Your name</span>
+              <input required name="name" placeholder="Your name" autocomplete="name" />
+            </label>
+            <label>
+              <span class="sr-only">Your email</span>
+              <input required type="email" name="email" placeholder="Your email" autocomplete="email" />
+            </label>
           </div>
           <input name="subject" placeholder="Subject (optional)" />
           <textarea required name="message" rows="5" placeholder="Tell me about your project..."></textarea>
@@ -379,14 +398,21 @@
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
       <div>© <span id="year"></span> Ali Mahdjoub — All rights reserved.</div>
       <div style="display:flex; gap:12px">
-        <a class="tag" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="tag" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="tag" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="tag" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a class="tag" href="#home">Back to top ↑</a>
       </div>
     </div>
   </footer>
 
   <script>
+    // Utility: screen reader only class
+    (function(){
+      const style = document.createElement('style');
+      style.textContent = `.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}`;
+      document.head.appendChild(style);
+    })();
+
     // Mobile menu toggle
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
@@ -402,17 +428,27 @@
       navLinks.style.padding = '16px';
       navLinks.style.border = '1px solid rgba(255,255,255,.08)';
       navLinks.style.borderRadius = '12px';
+      menuBtn.setAttribute('aria-expanded', String(!visible));
     });
 
-    // Active link highlight on scroll
+    // Close mobile menu after clicking a link
+    navLinks?.addEventListener('click', (e)=>{
+      const target = e.target;
+      if(target.tagName === 'A' && getComputedStyle(menuBtn).display !== 'none'){
+        navLinks.style.display = 'none';
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Active link highlight on scroll + aria-current
     const sections = ['home','about','skills','projects','resume','contact'].map(id => document.getElementById(id));
     const links = Array.from(document.querySelectorAll('header nav a'));
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
-          links.forEach(l=>l.classList.remove('active'));
+          links.forEach(l=>{l.classList.remove('active'); l.setAttribute('aria-current', 'false');});
           const link = document.querySelector(`header nav a[href="#${e.target.id}"]`);
-          if(link) link.classList.add('active');
+          if(link){ link.classList.add('active'); link.setAttribute('aria-current', 'true'); }
         }
       })
     }, {rootMargin:'-40% 0px -50% 0px', threshold:0});
