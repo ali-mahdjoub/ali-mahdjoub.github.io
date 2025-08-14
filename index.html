@@ -1,146 +1,226 @@
-        <!DOCTYPE html>
-<html lang="en">
+                <!doctype html>
+
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ali Mahdjoub - Portfolio</title>
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #ffb400, #ff8000);
-        color: white;
-        scroll-behavior: smooth;
-    }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ali Mahdjoub — Portfolio</title>
+  <meta name="description" content="Portfolio d'Ali Mahdjoub — Junior Android Developer" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <style>
+    /* ====== Fonts ====== */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');:root{
+  --bg1: #ffb347; /* orange */
+  --bg2: #ffd54a; /* yellow */
+  --card: rgba(255,255,255,0.92);
+  --glass: rgba(255,255,255,0.12);
+  --accent: #ff6b00;
+  --text: #1b1b1b;
+}
 
-    header {
-        text-align: center;
-        padding: 60px 20px;
-        animation: fadeIn 2s ease-in-out;
-    }
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:var(--text)}
 
-    h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-    }
+/* ====== Page background gradient + animated blobs ====== */
+body{
+  background: linear-gradient(135deg,var(--bg1),var(--bg2));
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
 
-    h2 {
-        font-weight: 300;
-        font-size: 1.5rem;
-        color: #fff5d1;
-    }
+.container{max-width:1100px;margin:0 auto;padding:48px 24px}
 
-    section {
-        padding: 60px 20px;
-        max-width: 900px;
-        margin: auto;
-        animation: slideUp 1.5s ease-in-out;
-    }
+header{
+  display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;
+}
+.logo{display:flex;gap:12px;align-items:center}
+.logo .avatar{
+  width:54px;height:54px;border-radius:12px;background:linear-gradient(180deg,#fff6e6,#ffd9a3);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);box-shadow:0 6px 18px rgba(0,0,0,0.12)
+}
+h1{margin:0;font-size:1.125rem}
 
-    h3 {
-        border-bottom: 2px solid rgba(255,255,255,0.4);
-        padding-bottom: 5px;
-        margin-bottom: 20px;
-    }
+nav a{margin-left:18px;text-decoration:none;color:rgba(27,27,27,0.9);font-weight:600}
 
-    ul {
-        line-height: 1.6;
-    }
+/* ====== Hero ====== */
+.hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding:36px;background:linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03));border-radius:18px;backdrop-filter: blur(6px);box-shadow:0 8px 30px rgba(27,27,27,0.08);position:relative;overflow:visible}
 
-    /* Animation Keyframes */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+.hero h2{font-size:2.2rem;margin:0 0 12px}
+.hero p.lead{margin:0 0 18px;opacity:0.95;line-height:1.5}
 
-    @keyframes slideUp {
-        from { transform: translateY(30px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
+.cta{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:var(--accent);color:white;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(255,107,0,0.18);transform:translateY(0);transition:transform .18s ease}
+.cta:hover{transform:translateY(-4px)}
 
-    /* Contact button */
-    .contact-btn {
-        display: inline-block;
-        padding: 12px 25px;
-        background: white;
-        color: #ff8000;
-        font-weight: bold;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: background 0.3s, color 0.3s;
-    }
-    .contact-btn:hover {
-        background: #ff8000;
-        color: white;
-    }
+/* Hero card */
+.card{
+  background:var(--card);padding:18px;border-radius:14px;box-shadow:0 10px 30px rgba(27,27,27,0.08)
+}
 
-    /* Smooth hover effect for sections */
-    section:hover {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 10px;
-        transition: 0.5s;
-    }
-</style>
+.profile-photo{width:100%;height:280px;border-radius:10px;background:linear-gradient(135deg,rgba(255,255,255,0.6),rgba(255,255,255,0.1));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.25rem;color:var(--accent)}
+
+/* ====== sections ====== */
+section{margin-top:36px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+
+.project{padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.96),rgba(255,255,255,0.9));border-radius:12px}
+.project h3{margin:0 0 8px;font-size:1.05rem}
+.project p{margin:0 0 12px;opacity:0.85}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.78rem;padding:6px 8px;border-radius:999px;background:var(--glass);border:1px solid rgba(255,255,255,0.14)}
+
+/* ====== skills ====== */
+.skill{display:flex;justify-content:space-between;align-items:center;padding:12px;background:rgba(255,255,255,0.06);border-radius:10px}
+.bar{height:10px;border-radius:999px;background:rgba(0,0,0,0.08);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),#ff9f43);width:0}
+
+/* ====== footer / contact ====== */
+footer{margin-top:36px;padding:20px;border-radius:12px;background:rgba(255,255,255,0.06)}
+
+/* ====== animated decorative blobs ====== */
+.blob{position:fixed;pointer-events:none;filter:blur(24px);opacity:0.75;mix-blend-mode:screen}
+.blob.b1{width:420px;height:420px;right:-120px;top:-80px;background:radial-gradient(circle at 30% 30%,#ffffff55,transparent 40%),linear-gradient(135deg,#ff9f47,#ffd54a)}
+.blob.b2{width:320px;height:320px;left:-120px;bottom:-80px;background:linear-gradient(135deg,#ffd54a,#ffb347)}
+
+@keyframes floaty {
+  0%{transform: translateY(0) rotate(0)}
+  50%{transform: translateY(-18px) rotate(8deg)}
+  100%{transform: translateY(0) rotate(0)}
+}
+.blob{animation:floaty 8s ease-in-out infinite}
+
+/* reveal animations */
+.reveal{opacity:0;transform:translateY(18px);transition:all .7s cubic-bezier(.2,.9,.26,1)}
+.reveal.is-visible{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:880px){
+  .hero{grid-template-columns:1fr;}
+  .profile-photo{height:220px}
+  nav{display:none}
+}
+
+  </style>
 </head>
 <body>
+  <div class="blob b1" aria-hidden></div>
+  <div class="blob b2" aria-hidden></div>  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="avatar">AM</div>
+        <div>
+          <div style="font-weight:800">Ali Mahdjoub</div>
+          <div style="font-size:0.85rem;opacity:0.85">Junior Android Developer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">À propos</a>
+        <a href="#projects">Projets</a>
+        <a href="#skills">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header><main>
+  <section class="hero reveal">
+    <div>
+      <h2>Salut — je suis <strong>Ali</strong>, développeur Android junior.</h2>
+      <p class="lead">Je crée des applications mobiles propres, robustes et faciles à maintenir. J'aime transformer des idées en interfaces claires et des expériences utilisateurs fluides.</p>
+      <p style="margin-bottom:18px;opacity:0.9">Spécialités : Kotlin, Android Jetpack (Compose & View), Firebase, REST APIs.</p>
+      <a class="cta" href="#projects">Voir mes projets →</a>
+    </div>
 
-<header>
-    <h1>👋 Hi, I’m <span style="color: #fff5d1;">Ali Mahdjoub</span></h1>
-    <h2>Junior Android Developer | Java & Kotlin Enthusiast</h2>
-</header>
+    <aside class="card">
+      <div class="profile-photo">Photo / Illustration</div>
+      <div style="display:flex;gap:8px;margin-top:12px;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-weight:700">Ali Mahdjoub</div>
+          <div style="font-size:.85rem;opacity:0.75">Junior Android Developer</div>
+        </div>
+        <div style="text-align:right;font-size:.8rem;opacity:0.85">Algérie · Disponible</div>
+      </div>
+    </aside>
+  </section>
 
-<section id="about">
-    <h3>About Me</h3>
-    <p>
-        I’m a Junior Android Developer with hands-on experience through internships, passionate about crafting
-        native Android applications with <b>Java</b> and <b>Kotlin</b>. I have a strong understanding of software
-        engineering principles and love designing clean, user-friendly interfaces.
-    </p>
-</section>
+  <section id="about" class="reveal">
+    <div class="card">
+      <h3>À propos</h3>
+      <p>Je suis un développeur Android passionné par la qualité du code et l'expérience utilisateur. J'ai travaillé sur des applications qui gèrent l'authentification, les bases de données locales, la synchronisation et les paiements intégrés.</p>
+    </div>
+  </section>
 
-<section id="portfolio">
-    <h3>💼 Portfolio</h3>
-    <ul>
-        <li>4+ mobile applications</li>
-        <li>3 developed from scratch (Java)</li>
-        <li>1 maintained and improved (Kotlin)</li>
-    </ul>
-</section>
+  <section id="projects" class="reveal">
+    <h3 style="margin-bottom:12px">Projets</h3>
+    <div class="grid-3">
+      <article class="project">
+        <h3>App de réservation (demo)</h3>
+        <p>Application mobile pour réserver des billets et gérer les réservations avec Firebase.</p>
+        <div class="tags">
+          <span class="tag">Kotlin</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">REST</span>
+        </div>
+      </article>
 
-<section id="projects">
-    <h3>🎯 Key Projects</h3>
-    <ul>
-        <li>✈️ <b>Belamouri Voyage</b> – Hotel booking app using Amadeus API.</li>
-        <li>🗺️ <b>Well Management – Sonatrach</b> – Oil well management with Google Maps API.</li>
-        <li>🛋️ <b>E-commerce App (Furniture)</b> – Store app with categories & cart.</li>
-        <li>🎓 <b>Student Management – EXIA CESI</b> – Academic tracking app.</li>
-    </ul>
-</section>
+      <article class="project">
+        <h3>Gestion d'agence (prototype)</h3>
+        <p>Prototype d'une app de gestion (clients, services, factures) inspirée d'OPERA/ERP.</p>
+        <div class="tags">
+          <span class="tag">Jetpack</span>
+          <span class="tag">Room</span>
+        </div>
+      </article>
 
-<section id="skills">
-    <h3>🔧 Tech Stack & Skills</h3>
-    <ul>
-        <li>Java, Kotlin, XML, Firebase, REST APIs, Volley</li>
-        <li>Clean Architecture, MVVM, MVC, Material Design</li>
-        <li>OOP, UI/UX, Problem-solving, Team collaboration</li>
-        <li>Agile with Trello</li>
-    </ul>
-</section>
+      <article class="project">
+        <h3>Portfolio animé</h3>
+        <p>Site personnel pour présenter mes travaux, animé et responsive (ce fichier).</p>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+        </div>
+      </article>
+    </div>
+  </section>
 
-<section id="focus">
-    <h3>📌 Currently Focusing On</h3>
-    <ul>
-        <li>Jetpack Compose & modern Android UI</li>
-        <li>Clean architecture improvements</li>
-        <li>Exploring SwiftUI for iOS</li>
-    </ul>
-</section>
+  <section id="skills" class="reveal">
+    <h3 style="margin-bottom:12px">Compétences</h3>
+    <div class="grid-3">
+      <div class="skill"><div>Kotlin</div><div class="bar" style="width:48%"><i style="width:88%"></i></div></div>
+      <div class="skill"><div>Android Jetpack</div><div class="bar" style="width:48%"><i style="width:82%"></i></div></div>
+      <div class="skill"><div>Firebase</div><div class="bar" style="width:48%"><i style="width:78%"></i></div></div>
+      <div class="skill"><div>UI / UX</div><div class="bar" style="width:48%"><i style="width:70%"></i></div></div>
+      <div class="skill"><div>Git & CI</div><div class="bar" style="width:48%"><i style="width:72%"></i></div></div>
+      <div class="skill"><div>Testing</div><div class="bar" style="width:48%"><i style="width:60%"></i></div></div>
+    </div>
+  </section>
 
-<section id="contact" style="text-align: center;">
-    <h3>📬 Contact Me</h3>
-    <p>Email: <a href="mailto:alimahdjoub.dev@gmail.com" style="color:white;">alimahdjoub.dev@gmail.com</a></p>
-    <a class="contact-btn" href="mailto:alimahdjoub.dev@gmail.com">Send Message</a>
-</section>
+  <section id="contact" class="reveal">
+    <h3 style="margin-bottom:12px">Contact</h3>
+    <div class="card">
+      <p>Envie de collaborer ? Discutons.</p>
+      <p style="margin:6px 0">Email : <a href="mailto:ali.mahdjoub@example.com">ali.mahdjoub@example.com</a></p>
+      <p style="margin:0"><a href="#" style="text-decoration:none;color:var(--accent)">Télécharger mon CV (placeholder)</a></p>
+    </div>
+  </section>
 
-</body>
-  </html>
+  <footer class="reveal">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>© " + new Date().getFullYear() + " Ali Mahdjoub</div>
+      <div style="opacity:0.85">Designed with ❤️ — Orange/Yellow theme</div>
+    </div>
+  </footer>
+</main>
+
+  </div>  <script>
+    // tiny reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('is-visible');
+      });
+    },{threshold:0.12});
+    reveals.forEach(r=>io.observe(r));
+
+    // small fix for dynamic year in footer (works inside single file)
+    try{
+      document.querySelector('footer div').innerText = '© ' + new Date().getFullYear() + ' Ali Mahdjoub';
+    }catch(e){}
+  </script></body>
+</html>
