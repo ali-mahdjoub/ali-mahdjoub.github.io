@@ -8,120 +8,130 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🗂️</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🔥</text></svg>">
   <style>
     :root{
-      /* Easily tweak the palette to match the reference page */
-      --bg: #0f172a;           /* slate-900 */
-      --panel: #111827cc;      /* semi-transparent panels */
-      --soft: #0b1220;         /* deeper background */
-      --text: #e5e7eb;         /* gray-200 */
-      --muted: #a1a1aa;        /* zinc-400 */
-      --brand: #6366f1;        /* indigo-500 */
-      --brand-2: #22d3ee;      /* cyan-400 */
-      --accent: #f59e0b;       /* amber-500 */
-      --ring: #22d3ee55;
-      --shadow: 0 8px 24px rgba(0,0,0,.35);
+      /* Orange & Yellow palette */
+      --bg: #0b0b0f;            /* near-black */
+      --soft: #111118;          /* card background */
+      --text: #f8fafc;          /* slate-50 */
+      --muted: #cbd5e1;         /* slate-300 */
+      --brand: #f97316;         /* orange-500 */
+      --brand-2: #f59e0b;       /* amber-500 */
+      --accent: #fde047;        /* yellow-300 */
+      --ring: #f59e0b55;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
       --radius: 18px;
       --radius-sm: 12px;
       --radius-lg: 28px;
       --maxw: 1100px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      color:var(--text); background: radial-gradient(1200px 500px at 10% -10%, #1e293b, transparent 50%),
-                          radial-gradient(900px 400px at 90% 10%, #0ea5e9, transparent 45%),
-                          linear-gradient(180deg, var(--soft), #0b1020 60%);
-      background-attachment: fixed, fixed, fixed;
+      color:var(--text); background: var(--bg);
+      min-height:100dvh; overflow-x:hidden;
     }
     a{color:inherit; text-decoration:none}
     .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
 
+    /* Animated background blobs */
+    .blob{position:fixed; inset:auto -10% auto -10%; width:60vmax; height:60vmax; filter:blur(60px); opacity:.35; pointer-events:none; z-index:-1}
+    .blob.one{top:-20vmax; left:-10vmax; background: radial-gradient(circle at 30% 30%, var(--brand), transparent 60%);} 
+    .blob.two{bottom:-25vmax; right:-15vmax; background: radial-gradient(circle at 70% 70%, var(--brand-2), transparent 60%);} 
+    .blob.three{top:30vh; left:40vw; background: radial-gradient(circle at 50% 50%, var(--accent), transparent 60%);} 
+    @keyframes floaty {0%{transform:translate(0,0) rotate(0)} 50%{transform:translate(2vmax,-2vmax) rotate(10deg)} 100%{transform:translate(0,0) rotate(0)}}
+    .blob{animation:floaty 18s ease-in-out infinite alternate}
+
     /* Header / Nav */
     header{
-      position:sticky; top:0; z-index:50; backdrop-filter: blur(12px);
-      background: linear-gradient(180deg, rgba(10,15,30,.8), rgba(10,15,30,.35));
+      position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(10,10,16,.9), rgba(10,10,16,.4));
       border-bottom:1px solid rgba(255,255,255,.06);
     }
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 0}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
     .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
-    .brand .logo{width:40px; height:40px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow: var(--shadow)}
+    .brand .logo{width:42px; height:42px; border-radius:12px; display:grid; place-items:center; background:conic-gradient(from 30deg,var(--brand),var(--brand-2),var(--accent),var(--brand)); box-shadow: var(--shadow)}
     .brand .logo span{font-weight:900}
     .nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0}
-    .nav a{opacity:.85; font-weight:600}
-    .nav a.active{color:var(--brand-2)}
+    .nav a{opacity:.9; font-weight:600}
+    .nav a.active{color:var(--accent)}
     .btn{
       display:inline-flex; align-items:center; gap:10px; padding:10px 16px; border-radius:12px; font-weight:700;
-      background:linear-gradient(135deg,var(--brand),var(--brand-2)); border:0; color:white; box-shadow:var(--shadow);
+      background:linear-gradient(135deg,var(--brand),var(--brand-2)); border:0; color:black; box-shadow:var(--shadow);
     }
+    .btn.secondary{background:linear-gradient(135deg,#1f2937,#0b0b0f); color:var(--muted); border:1px solid rgba(255,255,255,.08)}
     .menu-btn{display:none}
 
     /* Hero */
-    .hero{padding:64px 0 40px}
+    .hero{padding:72px 0 40px}
     .hero-card{
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.06); border-radius:var(--radius-lg); box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius-lg); box-shadow: var(--shadow);
       position:relative; overflow:hidden
     }
+    .sparkle{position:absolute; inset:0; background:radial-gradient(circle at var(--x,20%) var(--y,30%), rgba(253,224,71,.15), transparent 35%)}
     .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; padding:36px}
     .chip{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px;
-      background:rgba(34,211,238,.12); border:1px solid rgba(34,211,238,.35); color:#a5f3fc; font-weight:700; font-size:12px}
-    h1{font-size:42px; line-height:1.1; margin:14px 0 10px}
+      background:rgba(249,115,22,.12); border:1px solid rgba(245,158,11,.45); color:#fed7aa; font-weight:800; font-size:12px; letter-spacing:.06em}
+    h1{font-size:44px; line-height:1.08; margin:14px 0 10px}
+    .gradient-text{background:linear-gradient(90deg, var(--brand), var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent}
     .subtitle{color:var(--muted); max-width:60ch}
     .hero-cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
     .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px}
-    .stat{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:14px}
+    .stat{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:14px}
     .stat b{font-size:22px}
     .portrait{
-      aspect-ratio:1/1; border-radius:24px; border:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(135deg, rgba(99,102,241,.25), rgba(34,211,238,.18)), url('https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=960&auto=format&fit=crop') center/cover;
+      aspect-ratio:1/1; border-radius:24px; border:1px solid rgba(255,255,255,.1);
+      background:linear-gradient(135deg, rgba(249,115,22,.25), rgba(245,158,11,.18)), url('img/ali.jpg') center/cover;
       box-shadow: var(--shadow);
     }
 
     /* Sections */
-    section{padding:72px 0}
+    section{padding:76px 0}
     .section-head{display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom:24px}
-    .section-head h2{margin:0; font-size:28px}
-    .kicker{color:var(--brand-2); font-weight:800; letter-spacing:.2em; font-size:12px}
+    .section-head h2{margin:0; font-size:30px}
+    .kicker{color:var(--accent); font-weight:900; letter-spacing:.22em; font-size:12px}
     .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px; box-shadow: var(--shadow)}
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow: var(--shadow)}
 
     /* About */
     .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-    .about-grid p{color:#d1d5db}
-    .list{display:grid; gap:10px}
+    .about-grid p{color:#e5e7eb}
+    .list{display:grid; gap:10px; margin-top:8px}
     .list li{display:flex; align-items:center; gap:10px; list-style:none}
-    .tick{width:24px; height:24px; border-radius:8px; display:grid; place-items:center; background:rgba(99,102,241,.15); border:1px solid rgba(99,102,241,.4)}
+    .tick{width:24px; height:24px; border-radius:8px; display:grid; place-items:center; background:rgba(249,115,22,.15); border:1px solid rgba(245,158,11,.5)}
 
     /* Skills */
     .skills{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    .skill{padding:16px; border-radius:14px; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.03)}
+    .skill{padding:16px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03)}
     .bar{height:10px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden; margin-top:10px}
-    .bar > i{display:block; height:100%; background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+    .bar > i{display:block; height:100%; background:linear-gradient(90deg,var(--brand),var(--accent))}
 
     /* Projects */
     .projects{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
     .project{overflow:hidden}
-    .thumb{aspect-ratio:16/10; border-radius:14px; background:#111; border:1px solid rgba(255,255,255,.06); overflow:hidden}
+    .thumb{aspect-ratio:16/10; border-radius:14px; background:#111; border:1px solid rgba(255,255,255,.08); overflow:hidden; position:relative}
     .thumb img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.05)}
+    .thumb::after{content:""; position:absolute; inset:0; background:linear-gradient( to top, rgba(0,0,0,.35), transparent 40% );}
     .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
-    .tag{padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.12); font-size:12px; color:#cbd5e1}
+    .tag{padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.12); font-size:12px; color:#f1f5f9}
 
     /* Timeline */
     .timeline{position:relative; padding-left:24px}
     .timeline:before{content:""; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:linear-gradient(var(--brand), transparent)}
     .tl-item{position:relative; margin-bottom:18px}
-    .tl-item:before{content:""; position:absolute; left:-1px; top:8px; width:18px; height:18px; border-radius:50%; border:2px solid var(--brand-2); background:#0b1020}
+    .tl-item:before{content:""; position:absolute; left:-1px; top:8px; width:18px; height:18px; border-radius:50%; border:2px solid var(--accent); background:#0b0b0f}
 
     /* Contact */
     form{display:grid; gap:12px}
-    input, textarea{background:#0b1220; border:1px solid rgba(255,255,255,.08); padding:12px 14px; border-radius:12px; color:var(--text)}
+    input, textarea{background:#0d0d14; border:1px solid rgba(255,255,255,.1); padding:12px 14px; border-radius:12px; color:var(--text)}
     input:focus, textarea:focus{outline:none; border-color:var(--brand-2); box-shadow:0 0 0 6px var(--ring)}
 
     /* Footer */
-    footer{padding:36px 0 80px; color:#9ca3af}
+    footer{padding:38px 0 80px; color:#e2e8f0}
 
     /* Responsive */
     @media (max-width: 980px){
@@ -134,16 +144,22 @@
       .nav ul{display:none}
       .menu-btn{display:inline-flex}
       .skills, .projects{grid-template-columns:1fr}
+      h1{font-size:36px}
     }
   </style>
 </head>
 <body>
+  <!-- Animated BG blobs -->
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="blob three"></div>
+
   <!-- Header / Navigation -->
   <header>
     <div class="container nav">
       <a href="#home" class="brand">
-        <div class="logo"><span>A</span></div>
-        <span>Ali <span style="opacity:.7">Mahdjoub</span></span>
+        <div class="logo"><span>AM</span></div>
+        <span>Ali <span style="opacity:.8">Mahdjoub</span></span>
       </a>
       <nav>
         <ul id="navLinks">
@@ -161,15 +177,16 @@
 
   <!-- Hero -->
   <main id="home" class="hero container">
-    <div class="hero-card">
+    <div class="hero-card" id="heroCard">
+      <div class="sparkle" id="sparkle"></div>
       <div class="hero-grid">
         <div>
           <span class="chip">ANDROID • JAVA • KOTLIN</span>
-          <h1>Hi, I'm <span style="color:var(--brand-2)">Ali Mahdjoub</span> — Android Developer crafting smooth, modern mobile apps.</h1>
-          <p class="subtitle">I build native Android experiences with clean architecture, testable code, and delightful UI. I enjoy shipping features end‑to‑end — from data models and APIs to polished animations.</p>
+          <h1>Hi, I'm <span class="gradient-text">Ali Mahdjoub</span> — Android Developer crafting smooth, modern mobile apps.</h1>
+          <p class="subtitle">I build native Android experiences with clean architecture and delightful UI. I ship features end‑to‑end — from data models and APIs to polished animations.</p>
           <div class="hero-cta">
             <a class="btn" href="#projects">See my work</a>
-            <a class="btn" style="background:linear-gradient(135deg,var(--accent),#f97316)" href="cv.pdf" download>Download CV</a>
+            <a class="btn" style="background:linear-gradient(135deg,var(--accent),var(--brand))" href="cv.pdf" download>Download CV</a>
           </div>
           <div class="stats">
             <div class="stat"><b>10+</b><br><span class="muted">Personal/School Projects</span></div>
@@ -177,7 +194,7 @@
             <div class="stat"><b>5th year</b><br><span class="muted">CS @ CESI EXIA (DZ)</span></div>
           </div>
         </div>
-        <div class="portrait" aria-label="Profile portrait placeholder"></div>
+        <div class="portrait" id="portrait" aria-label="Profile portrait placeholder"></div>
       </div>
     </div>
   </main>
@@ -187,31 +204,31 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="kicker">APRESENTATION</div>
+          <div class="kicker">ABOUT</div>
           <h2>About Me</h2>
         </div>
-        <a class="btn" href="#contact">Hire me</a>
+        <label class="btn secondary" for="photoInput">Upload my photo</label>
       </div>
+      <input id="photoInput" type="file" accept="image/*" style="display:none" />
       <div class="about-grid">
         <div class="card">
           <p>
-            I'm a junior Android developer focused on shipping reliable apps. My interests include clean architecture (MVVM), Jetpack libraries, offline‑first data, and accessible UI.
+            I'm a junior Android developer focused on shipping reliable apps. My interests include Clean Architecture (MVVM), Jetpack libraries, offline‑first data, and accessible UI.
             I also enjoy data modeling and SQL, and I'm expanding into Python for tooling.
           </p>
           <ul class="list">
             <li><span class="tick">✓</span> Native Android (Java & Kotlin)</li>
-            <li><span class="tick">✓</span> REST/JSON • Retrofit • Room</li>
+            <li><span class="tick">✓</span> Jetpack • Retrofit • Room</li>
             <li><span class="tick">✓</span> Unit/UI tests • Espresso/Mockito</li>
             <li><span class="tick">✓</span> Agile sprints with Trello/Jira</li>
           </ul>
         </div>
-        <div class="card">
-          <p>
-            Education: 5th‑year Computer Science student at CESI EXIA (Algeria). I'm looking to continue my studies and collaborate on impactful mobile projects.
-          </p>
-          <p>
-            Languages: English • French • Arabic. Based in Algeria, open to remote.
-          </p>
+        <div class="card" style="display:grid; grid-template-columns:120px 1fr; gap:14px; align-items:center">
+          <img id="aboutPhoto" src="img/ali.jpg" alt="Ali Mahdjoub portrait" style="width:120px; height:120px; object-fit:cover; border-radius:18px; border:1px solid rgba(255,255,255,.1)">
+          <div>
+            <p>Education: 5th‑year Computer Science student at CESI EXIA (Algeria). Open to remote collaborations and internships.</p>
+            <p>Languages: English • French • Arabic. Based in Algeria.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -268,15 +285,19 @@
       </div>
       <div class="projects">
         <article class="card project">
-          <div class="thumb"><img alt="Hotel search app" src="https://images.unsplash.com/photo-1551776235-dde6d4829808?q=80&w=1200&auto=format&fit=crop"></div>
+          <div class="thumb">
+            <img alt="Hotel search app mock" src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23f97316'/><stop offset='1' stop-color='%23fde047'/></linearGradient></defs><rect width='1600' height='1000' fill='url(%23g)'/><g fill='white' fill-opacity='.85'><rect x='180' y='180' rx='30' width='1240' height='120'/><rect x='180' y='340' rx='30' width='880' height='120'/><rect x='1080' y='340' rx='30' width='340' height='120'/><rect x='180' y='500' rx='30' width='1240' height='320'/></g></svg>">
+          </div>
           <h3>Hotel Finder (Amadeus API)</h3>
-          <p class="subtitle">Android app like Skyscanner for hotels: city autocomplete, list of hotels with price & photos.</p>
+          <p class="subtitle">Android app like Skyscanner for hotels: city autocomplete, hotels with price & photos.</p>
           <div class="tags">
             <span class="tag">Android</span><span class="tag">Kotlin</span><span class="tag">Amadeus</span><span class="tag">Retrofit</span>
           </div>
         </article>
         <article class="card project">
-          <div class="thumb"><img alt="Timer app" src="https://images.unsplash.com/photo-1515706886582-54c73c5eaf41?q=80&w=1200&auto=format&fit=crop"></div>
+          <div class="thumb">
+            <img alt="Timer app mock" src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><linearGradient id='g2' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23f59e0b'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='1600' height='1000' fill='url(%23g2)'/><g fill='white' fill-opacity='.9'><circle cx='400' cy='500' r='180'/><rect x='700' y='380' rx='30' width='720' height='80'/><rect x='700' y='500' rx='30' width='580' height='80'/></g></svg>">
+          </div>
           <h3>Timer App</h3>
           <p class="subtitle">Multiple real‑time timers, background service, notifications, and persistent storage.</p>
           <div class="tags">
@@ -284,7 +305,9 @@
           </div>
         </article>
         <article class="card project">
-          <div class="thumb"><img alt="Agency management app" src="https://images.unsplash.com/photo-1551281044-8a5c4e7ef869?q=80&w=1200&auto=format&fit=crop"></div>
+          <div class="thumb">
+            <img alt="Agency app mock" src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><linearGradient id='g3' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23fde047'/><stop offset='1' stop-color='%23f59e0b'/></linearGradient></defs><rect width='1600' height='1000' fill='url(%23g3)'/><g fill='white' fill-opacity='.85'><rect x='220' y='220' rx='24' width='1160' height='120'/><rect x='220' y='380' rx='24' width='860' height='300'/><rect x='1100' y='380' rx='24' width='280' height='300'/></g></svg>">
+          </div>
           <h3>Travel Agency Manager</h3>
           <p class="subtitle">Prototype covering clients, services, invoices, HR, events — inspired by OPERA system.</p>
           <div class="tags">
@@ -345,7 +368,7 @@
           <textarea required name="message" rows="5" placeholder="Tell me about your project..."></textarea>
           <div style="display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap">
             <button class="btn" type="submit">Send Message</button>
-            <div style="opacity:.7">Or email: <a href="mailto:ali.mahdjoub.dev@gmail.com" style="text-decoration:underline; color:#a5f3fc">ali.mahdjoub.dev@gmail.com</a></div>
+            <div style="opacity:.8">Or email: <a href="mailto:ali.mahdjoub.dev@gmail.com" style="text-decoration:underline; color:var(--accent)">ali.mahdjoub.dev@gmail.com</a></div>
           </div>
         </form>
       </div>
@@ -367,17 +390,17 @@
     // Mobile menu toggle
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
-    menuBtn.addEventListener('click', () => {
+    menuBtn?.addEventListener('click', () => {
       const visible = getComputedStyle(navLinks).display !== 'none';
       navLinks.style.display = visible ? 'none' : 'flex';
       navLinks.style.flexDirection = 'column';
       navLinks.style.gap = '14px';
-      navLinks.style.background = 'rgba(10,15,30,.95)';
+      navLinks.style.background = 'rgba(10,10,16,.98)';
       navLinks.style.position = 'absolute';
       navLinks.style.right = '20px';
       navLinks.style.top = '64px';
       navLinks.style.padding = '16px';
-      navLinks.style.border = '1px solid rgba(255,255,255,.06)';
+      navLinks.style.border = '1px solid rgba(255,255,255,.08)';
       navLinks.style.borderRadius = '12px';
     });
 
@@ -396,7 +419,7 @@
     sections.forEach(s=>s && io.observe(s));
 
     // Handle contact form (no backend): open mailto
-    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+    document.getElementById('contactForm')?.addEventListener('submit', (e)=>{
       e.preventDefault();
       const data = Object.fromEntries(new FormData(e.target).entries());
       const body = encodeURIComponent(`${data.message}\n\nFrom: ${data.name} <${data.email}>`);
@@ -406,6 +429,32 @@
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Subtle hero sparkle following pointer
+    const sparkle = document.getElementById('sparkle');
+    document.getElementById('heroCard')?.addEventListener('pointermove', (e)=>{
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = ((e.clientX - rect.left)/rect.width)*100;
+      const y = ((e.clientY - rect.top)/rect.height)*100;
+      sparkle.style.setProperty('--x', x + '%');
+      sparkle.style.setProperty('--y', y + '%');
+    });
+
+    // Upload local photo and use it in Hero + About
+    const photoInput = document.getElementById('photoInput');
+    const portrait = document.getElementById('portrait');
+    const aboutPhoto = document.getElementById('aboutPhoto');
+    photoInput?.addEventListener('change', (e)=>{
+      const file = e.target.files?.[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const url = reader.result;
+        portrait.style.backgroundImage = `linear-gradient(135deg, rgba(249,115,22,.25), rgba(245,158,11,.18)), url('${url}')`;
+        aboutPhoto.src = url;
+      };
+      reader.readAsDataURL(file);
+    });
   </script>
 </body>
 </html>
