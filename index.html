@@ -1,138 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ali Mahdjoub - Mobile Developer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Mahdjoub - Portfolio</title>
   <style>
-    :root{
-      --bg:#16033a;           /* fond violet très foncé (proche de la capture) */
-      --accent:#ff0a6c;       /* bandeau rose/rouge fuchsia */
-      --text:#ffffff;
-      --muted:rgba(255,255,255,.35);
-      --card:#ffffff;
-      --icon:#1a1240;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: white;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #4f9eff, #6c63ff);
+      animation: fadeIn 1.2s ease-out;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 20px;
+      animation: fadeInDown 1.2s ease-out;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header h2 {
+      color: #eee;
+      font-weight: 400;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h3 {
+      color: #4f9eff;
+      margin-top: 40px;
+      animation: fadeInLeft 1s ease-out;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 25px;
+      background: #4f9eff;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    a.button:hover {
+      background: #357fd0;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #bbb;
+      border-top: 1px solid #333;
     }
 
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:var(--bg);
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
-    /* --- NAV --- */
-    .topbar{
-      position:sticky; top:0; z-index:10;
-      width:100%;
-      background:var(--accent);
-      box-shadow:0 2px 6px rgba(0,0,0,.15);
-    }
-    .nav{
-      max-width:1100px; margin:0 auto; padding:12px 20px;
-      display:flex; gap:18px; justify-content:center; flex-wrap:wrap;
-    }
-    .nav a{
-      color:#fff; text-decoration:none; font-weight:600; letter-spacing:.2px;
-    }
-    .nav a:hover{ text-decoration:underline; }
-
-    /* --- HERO / PRESENTATION --- */
-    .presentation{
-      max-width:920px; margin:0 auto; padding:64px 20px 80px;
-      text-align:center;
-    }
-    .avatar{
-      width:220px; height:220px; border-radius:50%;
-      border:6px solid var(--accent);
-      object-fit:cover; object-position:center;
-      box-shadow:0 8px 24px rgba(0,0,0,.35);
-      background:#2a1a5a;
-    }
-    .line{
-      width:min(520px,88%); height:1px; background:var(--muted);
-      margin:28px auto;
-    }
-    h1{margin:10px 0 6px; font-size:34px;}
-    .role{margin:0 0 8px; font-size:20px; opacity:.95}
-
-    /* --- SOCIAL ICONS (ronds blancs) --- */
-    .social{
-      display:flex; justify-content:center; gap:22px; margin:22px 0 14px;
-      flex-wrap:wrap;
-    }
-    .icon-btn{
-      width:60px; height:60px; border-radius:50%;
-      background:var(--card); color:var(--icon);
-      display:inline-flex; align-items:center; justify-content:center;
-      font-size:26px;
-      box-shadow:0 8px 18px rgba(0,0,0,.28);
-      transition:transform .15s ease, box-shadow .15s ease, color .15s ease, background .15s ease;
-    }
-    .icon-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 22px rgba(0,0,0,.34);
-      color:var(--accent);
-    }
-
-    .email{
-      font-weight:600; margin-top:8px; letter-spacing:.2px;
-    }
-
-    /* --- Responsive tweaks --- */
-    @media (max-width:520px){
-      .avatar{width:180px;height:180px;border-width:5px}
-      h1{font-size:28px}
-      .role{font-size:18px}
-      .icon-btn{width:56px;height:56px;font-size:24px}
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Bandeau navigation (mêmes libellés que la page d'exemple) -->
-  <header class="topbar">
-    <nav class="nav">
-      <a href="#home">Homepage</a>
-      <a href="#about">About</a>
-      <a href="#tech">Technologies</a>
-      <a href="#projects">Projects</a>
-      <a href="#feedbacks">Feedbacks</a>
-      <a href="#services">Services</a>
-      <a href="#cv">Download CV</a>
-    </nav>
+  <header>
+    <img src="https://via.placeholder.com/150" alt="Ali Mahdjoub Profile">
+    <h1>Ali Mahdjoub</h1>
+    <h2>👨🏻‍💻 Junior Android Developer</h2>
+    <div>
+      <a href="https://github.com/yourusername" target="_blank" class="button">GitHub</a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" class="button">LinkedIn</a>
+      <a href="mailto:contact@example.com" class="button">Email Me</a>
+      <a href="cv.pdf" class="button" download>Download CV</a>
+    </div>
   </header>
 
-  <!-- Section de présentation -->
-  <main id="home" class="presentation">
-    <img src="profile.jpg" alt="Ali Mahdjoub" class="avatar">
-    <div class="line"></div>
-    <h1>Ali Mahdjoub</h1>
-    <div class="line"></div>
+  <section>
+    <p>
+      Junior Android Developer with hands-on experience through internships.  
+      Focused on building native Android applications using <strong>Java</strong> and <strong>Kotlin</strong>,  
+      with a strong understanding of software engineering principles.
+    </p>
 
-    <p class="role">Mobile Developer</p>
+    <h3>💼 Portfolio</h3>
+    <ul>
+      <li>4+ mobile applications</li>
+      <li>3 developed from scratch (Java)</li>
+      <li>1 maintained and improved (Kotlin)</li>
+    </ul>
 
-    <div class="social">
-      <!-- Remplace # par tes vrais liens -->
-      <a class="icon-btn" href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-      <a class="icon-btn" href="https://github.com/" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a class="icon-btn" href="mailto:alimahdjoub077@gmail.com" aria-label="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
-      <a class="icon-btn" href="https://t.me/" target="_blank" aria-label="Telegram">
-        <i class="fab fa-telegram"></i>
-      </a>
-    </div>
+    <h3>🎯 Key Projects</h3>
+    <ul>
+      <li>✈️ <strong>Belamouri Voyage</strong> – Mobile travel app for booking hotels using the Amadeus API, city autocomplete, and hotel listings.</li>
+      <li>🗺️ <strong>Well Management – Sonatrach</strong> – Oil well management app with destination tracking and Google Maps API integration.</li>
+      <li>🛋️ <strong>E-commerce App (Furniture)</strong> – Simple store app with categories, item listings, and cart functionality.</li>
+      <li>🎓 <strong>Student Management – EXIA CESI</strong> – Student record management app for academic tracking.</li>
+    </ul>
 
-    <p class="email">alimahdjoub077@gmail.com</p>
-  </main>
+    <h3>🎓 Education</h3>
+    <p>
+      Master’s in Information Systems Management – Software Engineering  
+      <em>Level RNCP 7 – CESI EXIA (Algeria)</em>
+    </p>
+
+    <h3>🔧 Tech Stack & Skills</h3>
+    <ul>
+      <li>Java, Kotlin, XML, Firebase, REST APIs, Volley</li>
+      <li>Clean Architecture, MVVM, MVC, Material Design, ConstraintLayout</li>
+      <li>OOP, UI/UX, Problem-solving, Team collaboration</li>
+      <li>Agile (Trello)</li>
+    </ul>
+
+    <h3>📌 Currently focusing on</h3>
+    <ul>
+      <li>Improving skills in Jetpack Compose and modern Android UI components</li>
+      <li>Deepening understanding of clean architecture</li>
+      <li>Exploring iOS development (SwiftUI)</li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2025 Ali Mahdjoub | Portfolio hosted on GitHub Pages
+  </footer>
 
 </body>
-</html>
+  </html>
