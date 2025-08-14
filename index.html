@@ -1,117 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Mahdjoub - Mobile Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ali Mahdjoub - Mobile Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#16033a;           /* fond violet très foncé (proche de la capture) */
+      --accent:#ff0a6c;       /* bandeau rose/rouge fuchsia */
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.35);
+      --card:#ffffff;
+      --icon:#1a1240;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #1b0045; /* Fond violet foncé */
-            color: white;
-        }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+    }
 
-        /* Navigation */
-        nav {
-            background-color: #ff0066; /* Rose vif */
-            padding: 10px 0;
-        }
+    /* --- NAV --- */
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      width:100%;
+      background:var(--accent);
+      box-shadow:0 2px 6px rgba(0,0,0,.15);
+    }
+    .nav{
+      max-width:1100px; margin:0 auto; padding:12px 20px;
+      display:flex; gap:18px; justify-content:center; flex-wrap:wrap;
+    }
+    .nav a{
+      color:#fff; text-decoration:none; font-weight:600; letter-spacing:.2px;
+    }
+    .nav a:hover{ text-decoration:underline; }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
+    /* --- HERO / PRESENTATION --- */
+    .presentation{
+      max-width:920px; margin:0 auto; padding:64px 20px 80px;
+      text-align:center;
+    }
+    .avatar{
+      width:220px; height:220px; border-radius:50%;
+      border:6px solid var(--accent);
+      object-fit:cover; object-position:center;
+      box-shadow:0 8px 24px rgba(0,0,0,.35);
+      background:#2a1a5a;
+    }
+    .line{
+      width:min(520px,88%); height:1px; background:var(--muted);
+      margin:28px auto;
+    }
+    h1{margin:10px 0 6px; font-size:34px;}
+    .role{margin:0 0 8px; font-size:20px; opacity:.95}
 
-        nav ul li {
-            margin: 0 15px;
-        }
+    /* --- SOCIAL ICONS (ronds blancs) --- */
+    .social{
+      display:flex; justify-content:center; gap:22px; margin:22px 0 14px;
+      flex-wrap:wrap;
+    }
+    .icon-btn{
+      width:60px; height:60px; border-radius:50%;
+      background:var(--card); color:var(--icon);
+      display:inline-flex; align-items:center; justify-content:center;
+      font-size:26px;
+      box-shadow:0 8px 18px rgba(0,0,0,.28);
+      transition:transform .15s ease, box-shadow .15s ease, color .15s ease, background .15s ease;
+    }
+    .icon-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 22px rgba(0,0,0,.34);
+      color:var(--accent);
+    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .email{
+      font-weight:600; margin-top:8px; letter-spacing:.2px;
+    }
 
-        /* Presentation Section */
-        .presentation {
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        .profile-pic {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid #ff0066;
-        }
-
-        h1 {
-            margin-top: 20px;
-            font-size: 28px;
-        }
-
-        h2 {
-            font-weight: normal;
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .social-icons {
-            margin: 20px 0;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 28px;
-            margin: 0 10px;
-            transition: 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: #ff0066;
-        }
-
-        .email {
-            font-weight: bold;
-        }
-    </style>
+    /* --- Responsive tweaks --- */
+    @media (max-width:520px){
+      .avatar{width:180px;height:180px;border-width:5px}
+      h1{font-size:28px}
+      .role{font-size:18px}
+      .icon-btn{width:56px;height:56px;font-size:24px}
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#">Homepage</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Technologies</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Feedbacks</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Download CV</a></li>
-        </ul>
+  <!-- Bandeau navigation (mêmes libellés que la page d'exemple) -->
+  <header class="topbar">
+    <nav class="nav">
+      <a href="#home">Homepage</a>
+      <a href="#about">About</a>
+      <a href="#tech">Technologies</a>
+      <a href="#projects">Projects</a>
+      <a href="#feedbacks">Feedbacks</a>
+      <a href="#services">Services</a>
+      <a href="#cv">Download CV</a>
     </nav>
+  </header>
 
-    <!-- Presentation Section -->
-    <section class="presentation">
-        <img src="profile.jpg" alt="Ali Mahdjoub" class="profile-pic">
-        <h1>Ali Mahdjoub</h1>
-        <h2>Mobile Developer</h2>
+  <!-- Section de présentation -->
+  <main id="home" class="presentation">
+    <img src="profile.jpg" alt="Ali Mahdjoub" class="avatar">
+    <div class="line"></div>
+    <h1>Ali Mahdjoub</h1>
+    <div class="line"></div>
 
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="mailto:alimahdjoub077@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="#"><i class="fab fa-telegram"></i></a>
-        </div>
+    <p class="role">Mobile Developer</p>
 
-        <p class="email">alimahdjoub077@gmail.com</p>
-    </section>
+    <div class="social">
+      <!-- Remplace # par tes vrais liens -->
+      <a class="icon-btn" href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a class="icon-btn" href="https://github.com/" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a class="icon-btn" href="mailto:alimahdjoub077@gmail.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a class="icon-btn" href="https://t.me/" target="_blank" aria-label="Telegram">
+        <i class="fab fa-telegram"></i>
+      </a>
+    </div>
+
+    <p class="email">alimahdjoub077@gmail.com</p>
+  </main>
 
 </body>
 </html>
