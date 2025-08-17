@@ -1,313 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ali Mahdjoub – Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma Vidéo YouTube</title>
   <style>
-    :root{
-      --bg:#160a33; --bg-2:#1f0f45; --primary:#ff0a78; --text:#f7f7fb; --muted:#c8c6d8;
-      --card:#11072a; --maxw:1100px; --shadow:0 10px 30px rgba(0,0,0,.35); --radius:22px;
-      --green:#19c37d;
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+      padding: 20px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;color:var(--text);background:var(--bg)}
-    .topbar{position:sticky;top:0;z-index:50;background:var(--primary);box-shadow:var(--shadow)}
-    .nav{max-width:var(--maxw);margin:auto;padding:14px 18px;display:flex;gap:24px;align-items:center}
-    .nav a{color:#fff;text-decoration:none;font-weight:700}
-    .nav a:hover{text-decoration:underline}
-    section{padding:72px 22px;scroll-margin-top:120px}
-    .wrap{max-width:var(--maxw);margin:auto}
-    #home{padding-top:90px;padding-bottom:64px}
-    .hero{display:grid;place-items:center;text-align:center}
-    .avatar{width:330px;height:330px;border-radius:50%;overflow:hidden;border:6px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
-    .avatar img{width:100%;height:100%;object-fit:cover}
-    hr.sep{width:min(560px,90%);border:0;height:1px;background:linear-gradient(90deg,transparent,#ffffff85,transparent);margin:28px auto}
-    h1.name{font-size:clamp(28px,4vw,38px);margin:0 0 8px}
-    .role{font-size:clamp(18px,2.5vw,24px);font-weight:700;color:#fff;margin-bottom:24px}
-    .icons{display:flex;gap:40px;justify-content:center;margin:24px 0}
-    .icon{width:64px;height:64px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#160a33;box-shadow:var(--shadow);transition:transform .15s ease}
-    .icon:hover{transform:translateY(-3px)}
-    .icon img{width:32px;height:32px}
-    .email{color:#fff;text-decoration:none;font-weight:700;font-size:1.3em}
-    .email:hover{text-decoration:underline}
-
-    /* ABOUT */
-    .about-card{background:#efeff3;color:#000;border-radius:24px;padding:28px;box-shadow:var(--shadow);max-width:900px;margin:0 auto}
-    .about-card p, .about-card li{color:#000;line-height:1.7;font-size:18px;margin-bottom:12px}
-    .about-card strong{font-weight:700}
-    .about-card ul{margin:8px 0 0 18px;padding-left:10px}
-
-    /* TECHNOLOGIES */
-    #tech{background:var(--bg-2)}
-    .tech-wrap{max-width:var(--maxw);margin:auto;text-align:center}
-    .tech-title{font-size:28px;font-weight:700;margin-bottom:24px}
-    .tech-grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));align-items:flex-start}
-    .tech-item{display:flex;flex-direction:column;align-items:center;gap:10px}
-    .tech-logo{width:88px;height:88px;border-radius:18px;background:#0c0720;display:grid;place-items:center;box-shadow:var(--shadow);overflow:hidden}
-    .tech-logo img{width:64px;height:64px;object-fit:contain;display:block}
-    .tech-item span{font-weight:700}
-    .concept{width:88px;height:88px;border-radius:18px;display:grid;place-items:center;font-weight:800;color:#fff;box-shadow:var(--shadow)}
-    .c-mvvm{background:linear-gradient(135deg,#ff4da1,#7f57ff)}
-    .c-mvc{background:linear-gradient(135deg,#00c2ff,#0066ff)}
-    .c-clean{background:linear-gradient(135deg,#34d399,#059669)}
-    .github-white{filter:invert(1)}
-
-    /* PROJECTS */
-    #projects{background:#140a2e}
-    .projects-wrap{max-width:var(--maxw);margin:auto}
-    .projects-title{font-size:32px;font-weight:800;text-align:center;margin-bottom:26px}
-    .project-card{
-      background:#efeff3;color:#111;border-radius:26px;box-shadow:var(--shadow);
-      padding:28px 26px;margin:0 auto;max-width:1000px
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      overflow: hidden;
     }
-    .project-head{
-      background:#230f55;color:#fff;border-radius:12px;font-weight:800;
-      padding:14px 20px;
-      text-align:center;margin-bottom:18px;
-      font-size:30px;
-      line-height:1.2;
-    }
-    .tech-badges{display:flex;gap:64px;justify-content:center;align-items:center;margin:18px 0 8px}
-    .badge{display:flex;flex-direction:column;gap:10px;align-items:center}
-    .badge img{width:70px;height:70px;object-fit:contain}
-    .badge span{font-weight:800}
-    .badge--xl img{width:96px;height:96px}
-    .badge--xl span{font-size:20px}
-
-    .project-body{margin-top:16px}
-    .project-body p{line-height:1.7;font-size:18px;margin-bottom:10px}
-    .project-body strong{font-weight:800}
-
-    .key-title{display:flex;align-items:center;gap:8px;font-weight:900;margin:18px 0 10px;font-size:22px}
-    .key-list{margin-left:18px}
-    .key-list li{margin:10px 0;line-height:1.7;font-size:18px;list-style:none;position:relative;padding-left:28px}
-    .key-list li::before{content:"✔️"; position:absolute; left:0; top:0; transform:translateY(1px); color:var(--green);}
-
-    .sub-title{font-weight:900;margin:16px 0 8px}
-    .stack-list{margin:0 0 10px 22px; padding-left:16px; color:#111}
-    .stack-list li{margin:6px 0; line-height:1.6; font-size:17px}
-
-    /* YouTube – responsive 16:9 */
-    .yt-wrap{
-      position:relative;
-      width:100%;
-      padding-bottom:56.25%;
-      height:0;
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:#000;
-      margin-top:18px;
-    }
-    .yt-wrap iframe{
-      position:absolute; inset:0;
-      width:100%; height:100%; border:0;
-      display:block;
-    }
-    /* ✅ rendre visibles les miniatures cliquables */
-    .yt-wrap > a,
-    .yt-wrap > a > img{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      display:block; border:0;
-      object-fit:cover;   /* remplit le bloc (rognage si vidéo verticale) */
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <nav class="nav">
-      <a href="#home">Homepage</a>
-      <a href="#about">About</a>
-      <a href="#tech">Technologies</a>
-      <a href="#projects">Projects</a>
-      <a href="#feedbacks">Feedbacks</a>
-      <a href="#services">Services</a>
-      <a href="#cv">Download CV</a>
-    </nav>
-  </header>
-
-  <section id="home">
-    <div class="wrap hero">
-      <figure class="avatar">
-        <img src="https://i.pravatar.cc/600?img=15" alt="Photo de profil" />
-      </figure>
-      <hr class="sep" />
-      <h1 class="name">Ali Mahdjoub</h1>
-      <hr class="sep" />
-      <div class="role">Mobile Developer</div>
-      <div class="icons">
-        <a class="icon" href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-        </a>
-        <a class="icon" href="https://github.com" target="_blank" aria-label="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-        </a>
-        <a class="icon" href="mailto:alimahdjoub077@gmail.com" aria-label="Email">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-        </a>
-        <a class="icon" href="https://wa.me/213XXXXXXXXX" target="_blank" aria-label="WhatsApp">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-        </a>
-      </div>
-      <a class="email" href="mailto:alimahdjoub077@gmail.com">alimahdjoub077@gmail.com</a>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="wrap">
-      <div class="about-card">
-        <p><strong>Hello!</strong> My name is <strong>Ali Mahdjoub</strong> and I'm a <strong>Mobile Developer</strong> with <strong>hands-on experience</strong> through internships.</p>
-        <p>I have the following degree:</p>
-        <ul>
-          <li><strong>Master’s Degree in Computer Science</strong> — CESI EXIA Algeria | <strong>Graduated in 2025</strong>.</li>
-        </ul>
-        <p>I’m focused on building <strong>native Android applications</strong> using <strong>Java</strong> and <strong>Kotlin</strong>, with a <strong>strong understanding</strong> of software engineering principles.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="tech">
-    <div class="tech-wrap">
-      <h2 class="tech-title">Technologies</h2>
-      <div class="tech-grid">
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android logo" />
-          </div>
-          <span>Android</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java logo" />
-          </div>
-          <span>Java</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin logo" />
-          </div>
-          <span>Kotlin</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase logo" />
-          </div>
-          <span>Firebase</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#000000;">
-            <img class="github-white" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub logo" />
-          </div>
-          <span>GitHub</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original.svg" alt="Gradle logo" />
-          </div>
-          <span>Gradle</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn-icons-png.flaticon.com/512/873/873120.png" alt="Material Design logo" />
-          </div>
-          <span>Material Design</span>
-        </div>
-        <div class="tech-item">
-          <div class="concept c-mvvm">MVVM</div>
-          <span>MVVM</span>
-        </div>
-        <div class="tech-item">
-          <div class="concept c-mvc">MVC</div>
-          <span>MVC</span>
-        </div>
-        <div class="tech-item">
-          <div class="concept c-clean">Clean</div>
-          <span>Clean Architecture</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" alt="Trello logo" />
-          </div>
-          <span>Trello</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="projects-wrap">
-      <h2 class="projects-title">Projects</h2>
-
-      <article class="project-card">
-        <div class="project-head">✨ Travel & Tourism App</div>
-
-        <!-- Badges: ANDROID + JAVA (agrandis) -->
-        <div class="tech-badges">
-          <div class="badge badge--xl">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">
-            <span>Android</span>
-          </div>
-          <div class="badge badge--xl">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-            <span>Java</span>
-          </div>
-        </div>
-
-        <div class="project-body">
-          <p><strong>Travel & Tourism App</strong> is a full-featured <strong>Android</strong> mobile application I developed from scratch to digitalize both client services and internal operations for a modern travel agency. This multifunctional app integrates booking, invoicing, HR, finance, maps, and communication into one seamless mobile experience.</p>
-
-          <div class="key-title">✨ Key Features</div>
-          <ul class="key-list">
-            <li><strong>Authentication & User Management</strong> – Login/signup, profile updates (name, email, DOB, password)</li>
-            <li><strong>Clients & Services Modules</strong> – Manage individual and corporate clients, services, filtering, statistics & graphs</li>
-            <li><strong>Sales & Invoicing</strong> – Track sales, generate invoices (PDF & Excel), view trends and comparisons</li>
-            <li><strong>Finance Management</strong> – Monitor salaries, expenses, and costs with financial charts and Excel export</li>
-            <li><strong>HR & Task Management</strong> – Employee profiles, task assignments, lifecycle tracking and planning</li>
-            <li><strong>Relations & Public Data Modules</strong> – Supplier, public relations, embassy databases, and event calendars</li>
-            <li><strong>Geolocation & Maps</strong> – Locate travel agencies using Google Maps API with satellite view</li>
-            <li><strong>Email Automation</strong> – Integrated SMTP for automatic email sending (booking confirmations, invoices, etc.)</li>
-          </ul>
-
-          <div class="sub-title">💻Technology:</div>
-          <ul class="stack-list">
-            <li>Android</li>
-            <li>Java</li>
-            <li>Firebase</li>
-            <li>Amadeus API</li>
-            <li>Google Maps API</li>
-            <li>SMTP</li>
-            <li>Clean Architecture</li>
-            <li>Material Design | XML | ConstraintLayout</li>
-            <li>Gradle | UML | OOP</li>
-          </ul>
-
-          <div class="sub-title">🛠️ Tools</div>
-          <ul class="stack-list">
-            <li>Android Studio</li>
-            <li>Trello</li>
-            <li>Canva</li>
-            <li>Figma</li>
-            <li>PlantUML</li>
-          </ul>
-
-          <div class="sub-title">⏱️ Agile Methodology</div>
-          <ul class="stack-list">
-            <li>Agile-inspired workflow using Trello</li>
-          </ul>
-           <div class="yt-wrap">
-            <iframe src="https://www.youtube.com/embed/mGakM_eFe7I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-
-        </div>
-      </article>
-
-  
+  <h1>Ma Vidéo Shorts YouTube</h1>
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/mGakM_eFe7I"
+      title="YouTube Shorts"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
 </body>
 </html>
