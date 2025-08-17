@@ -92,30 +92,24 @@
     .stack-list{margin:0 0 10px 22px; padding-left:16px; color:#111}
     .stack-list li{margin:6px 0; line-height:1.6; font-size:17px}
 
-    /* YouTube – responsive 16:9 */
-    .yt-wrap{
-      position:relative;
-      width:100%;
-      padding-bottom:56.25%;
-      height:0;
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:#000;
-      margin-top:18px;
+    /* VIDEO CONTAINER */
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px; /* largeur max */
+      margin: 20px auto;
+      aspect-ratio: 16 / 9;
+      box-shadow: var(--shadow);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
     }
-    .yt-wrap iframe{
-      position:absolute; inset:0;
-      width:100%; height:100%; border:0;
-      display:block;
-    }
-    /* ✅ rendre visibles les miniatures cliquables */
-    .yt-wrap > a,
-    .yt-wrap > a > img{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      display:block; border:0;
-      object-fit:cover;   /* remplit le bloc (rognage si vidéo verticale) */
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
   </style>
 </head>
@@ -248,7 +242,7 @@
       <article class="project-card">
         <div class="project-head">✨ Travel & Tourism App</div>
 
-        <!-- Badges: ANDROID + JAVA (agrandis) -->
+        <!-- Badges: ANDROID + JAVA -->
         <div class="tech-badges">
           <div class="badge badge--xl">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">
@@ -301,14 +295,19 @@
           <ul class="stack-list">
             <li>Agile-inspired workflow using Trello</li>
           </ul>
- <div class="video-container">
-  <iframe 
-    src="https://www.youtube.com/embed/mGakM_eFe7I"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
-        
-            
+
+          <!-- VIDEO -->
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/mGakM_eFe7I"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+        </div>
+      </article>
+    </div>
+  </section>
 </body>
 </html>
