@@ -92,25 +92,25 @@
     .stack-list{margin:0 0 10px 22px; padding-left:16px; color:#111}
     .stack-list li{margin:6px 0; line-height:1.6; font-size:17px}
 
-    /* VIDEO CONTAINER */
-    .video-container {
-      position: relative;
-      width: 100%;
-      max-width: 900px; /* largeur max */
-      margin: 20px auto;
-      aspect-ratio: 16 / 9;
-      box-shadow: var(--shadow);
-      border-radius: 16px;
-      overflow: hidden;
-      background: #000;
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+   .video-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px; /* largeur max (tu peux augmenter) */
+  margin: 20px auto;
+  aspect-ratio: 16 / 9; /* garde la proportion */
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
   </style>
 </head>
 <body>
