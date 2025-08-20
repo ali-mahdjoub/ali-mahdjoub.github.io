@@ -126,44 +126,42 @@
       padding:10px 16px; border-radius:12px; box-shadow:var(--shadow);
     }
     .btn:hover{ filter:brightness(1.05); }
+
+    /* ===== Process card (après le review) ===== */
+    .process-card{
+      margin-top:26px;
+      background:#fff; color:#111;
+      border-radius:20px; box-shadow:var(--shadow);
+      padding:22px;
+    }
+    .process-grid{
+      display:grid; grid-template-columns: 1.05fr 1fr; gap:28px; align-items:start;
+    }
+    .process-img{border-radius:14px; overflow:hidden; box-shadow:var(--shadow);}
+    .process-img img{
+      display:block; width:100%; height:auto; /* ✅ l’image prend toute la largeur de la carte/colonne */
+    }
+    .process-title{
+      display:flex; align-items:center; gap:10px; font-weight:900; font-size:26px; margin-bottom:10px;
+    }
+    .process-step{line-height:1.8; font-size:18px; color:#222; margin:10px 0;}
+    .process-cta{
+      margin-top:14px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; font-weight:700;
+    }
+    .cta-badges{display:flex; gap:12px; flex-wrap:wrap;}
+    .cta-btn{
+      background:var(--primary); color:#fff; text-decoration:none; font-weight:800;
+      padding:10px 16px; border-radius:12px; box-shadow:var(--shadow);
+    }
+    .cta-btn:hover{filter:brightness(1.05);}
+
     /* Mobile tweaks */
+    @media (max-width: 960px){
+      .process-grid{ grid-template-columns: 1fr; }
+    }
     @media (max-width: 560px){
       .pdf-frame{ height:60vh; min-height:360px; }
     }
- /* === WORK WITH ME (comme la capture) === */
-.work-card{
-  background:#f5f6fb; color:#0f0f1a; border-radius:20px; box-shadow:var(--shadow);
-  padding:22px; margin-top:22px;
-}
-.work-title{
-  font-weight:900; font-size:clamp(22px,2.6vw,28px); margin:0 0 12px;
-  display:flex; gap:8px; align-items:center;
-}
-.work-grid{
-  display:grid; grid-template-columns: 1.05fr 1fr; gap:24px; align-items:start;
-}
-.work-img{ border-radius:14px; overflow:hidden; box-shadow:var(--shadow); background:#000; }
-.work-img img{
-  width:100%; height:100%; display:block; object-fit:cover;
-  aspect-ratio: 4 / 3; /* grande image comme ta capture */
-}
-.work-steps{ font-size:18px; line-height:1.75; }
-.work-steps p{ margin:8px 0; }
-.cta-row{ margin-top:12px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-.cta-small{ font-size:16px; }
-.btn-cta{
-  background:var(--primary); color:#fff; text-decoration:none; font-weight:800;
-  padding:10px 16px; border-radius:10px; box-shadow:var(--shadow); display:inline-block;
-}
-.btn-cta:hover{ filter:brightness(1.05); }
-
-/* mobile */
-@media (max-width: 880px){
-  .work-grid{ grid-template-columns:1fr; }
-  .work-img img{ aspect-ratio: 16 / 10; }
-}
-
-
   </style>
 </head>
 <body>
@@ -199,7 +197,7 @@
         <a class="icon" href="mailto:alimahdjoub077@gmail.com" aria-label="Email">
           <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
         </a>
-        <a class="icon" href="https://wa.me/213XXXXXXXXX" target="_blank" aria-label="WhatsApp">
+        <a class="icon" href="https://wa.me/2130671236181" target="_blank" aria-label="WhatsApp">
           <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
         </a>
       </div>
@@ -385,65 +383,60 @@
     </div>
   </section>
 
-  <!-- FEEDBACKS -->
 <section id="feedbacks">
   <div class="feedbacks-wrap">
     <h2 class="feedbacks-title">Feedbacks</h2>
 
     <div class="pdf-card">
-      <!-- ✅ Google Drive preview -->
       <iframe
         class="pdf-frame"
         src="https://drive.google.com/file/d/1DmeSbar5Z-HAssmntGxS6ZLIAjnatD4X/preview">
       </iframe>
-
-      <div class="pdf-actions">
-<!-- ===== How Does Look Like Working With Me? ===== -->
-<div class="work-card">
-  <div class="work-title">✨ How Does Look Like Working With Me? ✨</div>
-
-  <div class="work-grid">
-    <!-- 📸 GRANDE IMAGE PC + ANDROID (pas Apple) -->
-    <figure class="work-img">
-      <!-- ⚠️ Remplace le src par TA photo PC+Android (même taille que ta capture) -->
-      <img src="images/pc-android.jpg" alt="PC with Android project open">
-    </figure>
-
-    <!-- 📝 TEXTE À DROITE (comme la capture) -->
-    <div class="work-steps">
-      <p>You send me a message explaining what you need.</p>
-      <p>I ask several questions to identify the problem, and what is the best technical approach to use.</p>
-      <p>I evaluate the complexity of features × development time.</p>
-      <p>I send you the price and deadline for the project.</p>
-      <p>If you decide to move forward with me, I will send you the contract and request the needed informations.</p>
-      <p>I send you the contract by email.</p>
-      <p>After all the signatures collected, you transfer me <strong>50%</strong> of the contract value, and I send you the first invoice.</p>
-      <p>I start the development of the app.</p>
-      <p>Every 3 business days I send you updates on the progress of the activities.</p>
-      <p>When the development is complete, I will send you the files via Google Drive or upload the app to the Playstore.</p>
-      <p>You pay me the remaining <strong>50%</strong> of the contract value, and I send you the second invoice.</p>
-
-      <div class="cta-row">
-        <span class="cta-small">👨🏻‍💻 Do you want to transform your idea into an app?</span>
-        <!-- ✅ BOUTON "Click here!" QUI OUVRE WHATSAPP DIRECTEMENT -->
-        <!-- Numéro 0671236181 → format international pour WhatsApp: +213671236181 -->
-        <a class="btn-cta" href="https://wa.me/213671236181" target="_blank" rel="noopener">
-          Click here!
-        </a>
-      </div>
     </div>
-  </div>
-</div>
+
+    <!-- ✅ Bloc “How does look like working with me?” -->
+
+
+<div class="process-card" 
+     style="display: flex; flex-wrap: wrap; max-width: 1200px; margin: 160px auto 0; background: white; border-radius: 8px; overflow: hidden;">
 
 
 
+      <!-- Image colonne gauche -->
+      <div class="process-img" style="flex: 1; min-width: 40%; max-width: 50%;">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=70"
+             alt="Modern silver laptop"
+             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
 
-  
+      <!-- Texte colonne droite -->
+      <div style="flex: 1; padding: 20px; min-width: 50%;">
+        <div class="process-title">✨ How Does Look Like Working With Me?✨</div>
+
+        <p class="process-step">You send me a message explaining what you need.</p>
+        <p class="process-step">I ask a few questions to identify the problem and the best technical approach.</p>
+        <p class="process-step">I evaluate feature complexity × development time, then send you the price and deadline.</p>
+        <p class="process-step">If you decide to move forward, I send the contract and request the needed information.</p>
+        <p class="process-step">After signatures are collected, you transfer 50% and I send the first invoice.</p>
+        <p class="process-step">I start the development and send progress updates every 3 business days.</p>
+        <p class="process-step">When the app is complete, I deliver the files via Google Drive or upload to Play Store.</p>
+        <p class="process-step">You pay the remaining 50% and I send the second invoice.</p>
+       <p class="process-step">💻 Do you want to transform your idea into an app?</p>
+
+
+        <!-- ✅ Bouton rose -->
+        <div class="process-cta" style="margin-top: 20px; text-align: center;">
+          <a class="cta-btn" 
+             href="https://wa.me/213671236181" 
+             target="_blank" 
+             aria-label="WhatsApp"
+             style="display: inline-block; background-color: #e60073; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: bold;">
+            Click Here
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-
 </body>
 </html>
