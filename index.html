@@ -24,20 +24,22 @@
     .wrap{max-width:var(--maxw);margin:auto}
     #home{padding-top:90px;padding-bottom:64px}
     .hero{display:grid;place-items:center;text-align:center}
-    .avatar {
-  width:330px;
-  height:330px;
-  border-radius:50%;
-  overflow:hidden;
-  border:6px solid rgba(255,255,255,.08);
-  box-shadow:var(--shadow)
+  .avatar {
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #fff;   /* bordure blanche comme Laura */
+  box-shadow: 0 0 0 6px #5a2d82; /* cercle violet autour */
 }
+
 .avatar img {
-  width: 120%;   /* zoom avant */
-  height: 120%;  /* zoom avant */
-  object-fit: cover;
-  object-position: top; /* recadre vers le haut (visage) */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* remplissage complet */
+  object-position: center; /* visage centré */
 }
+
 
 
     hr.sep{width:min(560px,90%);border:0;height:1px;background:linear-gradient(90deg,transparent,#ffffff85,transparent);margin:28px auto}
@@ -196,7 +198,7 @@
   <section id="home">
     <div class="wrap hero">
       <figure class="avatar">
-  <img src="2.png" alt="Photo de profil" />
+  <img src="portfolio.png" alt="Photo de profil" />
 </figure>
       <hr class="sep" />
       <h1 class="name">Ali Mahdjoub</h1>
