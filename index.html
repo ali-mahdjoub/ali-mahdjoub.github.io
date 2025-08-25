@@ -24,20 +24,25 @@
     .wrap{max-width:var(--maxw);margin:auto}
     #home{padding-top:90px;padding-bottom:64px}
     .hero{display:grid;place-items:center;text-align:center}
+
+
+
+
+
 .avatar {
-  width: 280px;   /* taille du cercle */
+  width: 280px;             /* taille du cercle */
   height: 280px;
+  background-color: #3b5998;  /* bleu un peu foncé */
+  border: 4px solid white;    /* contour blanc */
+  border-radius: 50%;         /* pour rendre le cercle */
+  overflow: hidden;           /* pour que l’image ne dépasse pas */
 }
 
 .avatar img {
   width: 100%;
   height: 100%;
+  object-fit: cover;          /* pour bien ajuster l'image dans le cercle */
 }
-
-
-
-
-
 
 
 
