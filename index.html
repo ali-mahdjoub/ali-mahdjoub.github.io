@@ -22,7 +22,7 @@
     .nav a:hover{text-decoration:underline}
     section{padding:72px 22px;scroll-margin-top:120px}
     .wrap{max-width:var(--maxw);margin:auto}
-    #home{padding-top:50px;padding-bottom:40px}
+    #home{padding-top:90px;padding-bottom:64px}
     .hero{display:grid;place-items:center;text-align:center}
 
 .img {
@@ -32,13 +32,9 @@
 
 
     hr.sep{width:min(560px,90%);border:0;height:1px;background:linear-gradient(90deg,transparent,#ffffff85,transparent);margin:28px auto}
-  h1.name {
-  font-size: clamp(26px, 4vw, 34px);
-  margin: 10px 0 6px; /* réduit espace vertical */
-}
     h1.name{font-size:clamp(28px,4vw,38px);margin:0 0 8px}
-    .role{font-size:clamp(18px,2.5vw,24px);font-weight:700;color:#fff;margin-bottom:16px}
-    .icons{display:flex;gap:40px;justify-content:center;margin:16px 0}
+    .role{font-size:clamp(18px,2.5vw,24px);font-weight:700;color:#fff;margin-bottom:24px}
+    .icons{display:flex;gap:40px;justify-content:center;margin:24px 0}
     .icon{width:64px;height:64px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#160a33;box-shadow:var(--shadow);transition:transform .15s ease}
     .icon:hover{transform:translateY(-3px)}
     .icon img{width:32px;height:32px}
@@ -164,17 +160,12 @@
     }
     .cta-btn:hover{filter:brightness(1.05);}
 
-      /* ===== RESPONSIVE ===== */
-    @media (max-width:768px){
-      .avatar{width:180px;height:180px}
-      .project-head{font-size:18px}
-      .tech-grid{gap:15px}
-      .process-card{flex-direction:column}
+    /* Mobile tweaks */
+    @media (max-width: 960px){
+      .process-grid{ grid-template-columns: 1fr; }
     }
-    @media (max-width:480px){
-      .nav{flex-direction:column;gap:10px}
-      .email{font-size:1em}
-      .project-card{padding:15px}
+    @media (max-width: 560px){
+      .pdf-frame{ height:60vh; min-height:360px; }
     }
     
   </style>
