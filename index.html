@@ -136,14 +136,30 @@
     .service-cta-btn{display:inline-block; background-color:#e60073; color:white; padding:14px 28px; border-radius:12px; text-decoration:none; font-weight:700; font-size:18px; box-shadow:0 8px 20px rgba(0,0,0,0.25);}
     
     /* MEDIA QUERIES POUR LA MOBILITÉ */
-    @media (max-width: 960px){
-      .process-grid{ grid-template-columns: 1fr; }
-    }
     @media (max-width: 768px) {
       .topbar { padding: 0 10px; display:flex; align-items:center; justify-content:space-between; }
-      .nav { padding: 10px 0; gap: 18px; display: none; }
-      .nav.active { display: flex; flex-direction: column; width: 100%; padding: 10px 0; gap: 10px; }
-      #menu-btn { display: block; background: none; border: none; cursor: pointer; padding: 10px; }
+      .nav { 
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        background: var(--primary);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: var(--shadow);
+        padding: 10px 0;
+        gap: 10px;
+      }
+      .nav.active { 
+        display: flex; 
+      }
+      #menu-btn { 
+        display: block; 
+        background: none; 
+        border: none; 
+        cursor: pointer; 
+        padding: 10px; 
+      }
       #menu-btn svg { width: 30px; height: 30px; fill: #fff; }
       section { padding: 40px 16px; scroll-margin-top: 80px; }
       h1.name { font-size: clamp(24px, 7vw, 36px); }
@@ -170,11 +186,13 @@
       .sub-title { font-size: 16px; }
       .stack-list li { font-size: 16px; }
     }
-    
   </style>
 </head>
 <body>
   <header class="topbar">
+    <button id="menu-btn" style="display:none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+    </button>
     <nav class="nav">
       <a href="#home">Homepage</a>
       <a href="#about">About</a>
@@ -184,9 +202,6 @@
       <a href="#services">Services</a>
       <a href="#cv">Download CV</a>
     </nav>
-    <button id="menu-btn" style="display:none; position:absolute; left:16px;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
-    </button>
   </header>
   <section id="home">
     <div class="wrap hero">
@@ -416,7 +431,7 @@
     <h2 style="text-align:center; font-size:32px; font-weight:900; margin-bottom:30px; color:#fff;">
       Services
     </h2>
-    <article class="project-card" style="text-align:center; padding:20px; border-radius:12px; background:#fff; box-shadow:0 8px 20px rgba(0,0,0,0.15);">
+    <article class="project-card" style="text-align:center; padding:20px; border-radius:12px; background:#fff; box-shadow:0 0 20px rgba(0,0,0,0.15);">
       
       <h3 style="margin-bottom:18px; font-size:24px; font-weight:800; background:#2c0055; color:white; padding:10px; border-radius:8px;">
         ✨ Apps Development Project (Android) ✨
