@@ -82,25 +82,25 @@
         #home{padding-top:90px;padding-bottom:64px}
         .hero{display:flex;flex-direction:column;align-items:center;text-align:center}
         
-        /* Augmentation de la taille de l'image de profil */
-        .avatar img {
+        /* Augmentation de la taille de l'image de profil et suppression de l'espace */
+        .hero img {
             width: clamp(250px, 60vw, 400px);
             height: auto;
             border-radius: 50%;
             box-shadow: var(--shadow);
+            margin-bottom: 20px;
         }
         
         /* Réduction de l'espace entre le nom, le poste et les icônes */
-        hr.sep{width:min(560px,90%);border:0;height:1px;background:linear-gradient(90deg,transparent,#ffffff85,transparent);margin:14px auto}
+        hr.sep{width:min(560px,90%);border:0;height:1px;background:linear-gradient(90deg,transparent,#ffffff85,transparent);margin:10px auto}
         /* Taille du nom réduite ici */
-        h1.name{font-size:clamp(24px, 5vw, 40px);margin:0 0 4px} 
-        .role{font-size:clamp(18px,4vw,24px);font-weight:700;color:#fff;margin-bottom:12px}
-        .icons{display:flex;gap:20px;justify-content:center;margin:12px 0; flex-wrap:wrap;}
+        h1.name{font-size:clamp(22px, 4.5vw, 38px); margin:0 0 4px} 
+        .role{font-size:clamp(18px,4vw,24px);font-weight:700;color:#fff;margin-bottom:10px}
+        .icons{display:flex;gap:20px;justify-content:center;margin:10px 0; flex-wrap:wrap;}
         .icon{width:56px;height:56px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#160a33;box-shadow:var(--shadow);transition:transform .15s ease}
         .icon:hover{transform:translateY(-3px)}
         .icon img{width:28px;height:28px}
-        .email{color:#fff;text-decoration:none;font-weight:700;font-size:1.3em}
-        .email:hover{text-decoration:underline}
+        .email{color:#fff;text-decoration:none;font-weight:700;font-size:1.3em; margin-bottom: 0;}
 
         /* ABOUT */
         .about-card{background:#efeff3;color:#000;border-radius:24px;padding:28px;box-shadow:var(--shadow);max-width:900px;margin:0 auto}
@@ -202,23 +202,24 @@
         
         /* MEDIA QUERIES POUR LA MOBILITÉ */
         @media (max-width: 768px) {
-            .topbar { padding: 0 10px; display: flex; justify-content: space-between; align-items: center; }
+            .topbar { padding: 0 10px; display: flex; justify-content: flex-start; align-items: center; }
             .nav { display: none; } /* Cache la navigation de PC */
             .mobile-menu-btn { display: block; } /* Affiche le bouton du menu mobile */
             section { padding: 40px 16px; scroll-margin-top: 80px; }
             
             /* Ajustements pour la taille sur mobile */
-            .avatar img {
+            .hero img {
                 width: clamp(200px, 50vw, 300px);
                 height: auto;
+                margin-bottom: 12px;
             }
             
-            h1.name { font-size: clamp(24px, 7vw, 36px); } /* Taille du nom ajustée pour mobile */
-            .role { font-size: clamp(16px, 4vw, 20px); margin-bottom: 12px; }
-            .icons { gap: 15px; margin: 12px 0; }
+            h1.name { font-size: clamp(24px, 7vw, 36px); }
+            .role { font-size: clamp(16px, 4vw, 20px); margin-bottom: 10px; }
+            .icons { gap: 15px; margin: 10px 0; }
             .icon { width: 50px; height: 50px; }
             .icon img { width: 24px; height: 24px; }
-            .email { font-size: 1em; margin-bottom: 12px; }
+            .email { font-size: 1em; margin-bottom: 0; }
             .tech-title, .projects-title, .feedbacks-title { font-size: 28px; }
             .tech-grid { grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); }
             .tech-logo { width: 70px; height: 70px; border-radius: 14px; }
@@ -247,6 +248,9 @@
 </head>
 <body>
     <header class="topbar">
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
         <nav class="nav" id="pc-nav">
             <a href="#home">Homepage</a>
             <a href="#about">About</a>
@@ -256,10 +260,6 @@
             <a href="#services">Services</a>
             <a href="#cv">Download CV</a>
         </nav>
-        
-        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
-            <i class="fa-solid fa-bars"></i>
-        </div>
         
         <div class="mobile-nav-container" id="mobile-nav">
             <i class="fa-solid fa-xmark nav-close-btn" onclick="toggleMobileMenu()"></i>
@@ -277,10 +277,8 @@
     
     <section id="home">
         <div class="wrap hero">
-            <figure class="avatar">
-                <img class="img" src="portfolio10.png" alt="Photo de profil" />
-            </figure>
-            <hr class="sep" />
+            <img class="img" src="portfolio10.png" alt="Photo de profil" />
+            
             <h1 class="name">Ali Mahdjoub</h1>
             <hr class="sep" />
             <div class="role">Mobile Developer</div>
