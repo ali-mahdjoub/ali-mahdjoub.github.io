@@ -165,25 +165,27 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
   .stack-list li{font-size:16px;}
 }
 
+/* Version laptop/PC */
 @media (min-width: 1024px) {
-
+  /* Photo beaucoup plus grande */
   .hero .img {
-    width: 460px;   
-    margin-bottom: 0px; 
+    width: 550px;   /* avant 420px → bien plus grand */
+    margin-bottom: 0px; /* plus d’espace en dessous */
   }
 
-  
+  /* Nom plus petit et rapproché */
   h1.name {
-    font-size: 30px; 
-    margin-top: 10px; 
-    margin-bottom: 5px;
+    font-size: 28px;   /* plus discret pour équilibrer */
+    margin-top: 6px;   /* rapproché de l’image */
+    margin-bottom: 4px;
   }
 
-  /* Réduire aussi l’espace des <hr> */
+  /* Ligne séparatrice resserrée */
   hr.sep {
-    margin: 4px auto;
+    margin: 3px auto;
   }
 }
+
 
 
      
