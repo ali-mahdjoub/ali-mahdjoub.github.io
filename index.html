@@ -164,25 +164,27 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
   .sub-title{font-size:16px;}
   .stack-list li{font-size:16px;}
 }
-/* Ajustements spécifiques pour les écrans laptop/PC */
+
 @media (min-width: 1024px) {
-  /* Réduit l'espace entre l'image et le nom */
+
   .hero .img {
-    width: 380px;   /* un peu plus petit que 420px pour harmoniser */
-    margin-bottom: 5px; /* réduit l’espace sous l’image */
+    width: 460px;   
+    margin-bottom: 0px; 
   }
 
-  /* Réduit la taille du nom uniquement sur laptop */
+  
   h1.name {
-    font-size: 32px;  /* plus petit que le clamp actuel */
-    margin: 5px 0;    /* réduit l’espace autour du texte */
+    font-size: 30px; 
+    margin-top: 10px; 
+    margin-bottom: 5px;
   }
 
-  /* Réduit un peu l’espace des séparateurs horizontaux */
+  /* Réduire aussi l’espace des <hr> */
   hr.sep {
-    margin: 6px auto;
+    margin: 4px auto;
   }
 }
+
 
      
   </style>
