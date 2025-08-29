@@ -8,8 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* VARIABLES ET STYLES DE BASE */
-    /* VARIABLES ET STYLES DE BASE */
+    
 :root{
   --bg:#160a33; --bg-2:#1f0f45; --primary:#ff0a78; --text:#f7f7fb; --muted:#c8c6d8;
   --card:#11072a; --maxw:1100px; --shadow:0 10px 30px rgba(0,0,0,.35); --radius:22px;
@@ -165,7 +164,12 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
   .sub-title{font-size:16px;}
   .stack-list li{font-size:16px;}
 }
-
+@media (min-width: 1024px) {
+  .hero .img {
+    width: 420px;  
+    height: auto;
+  }
+}
      
   </style>
 </head>
