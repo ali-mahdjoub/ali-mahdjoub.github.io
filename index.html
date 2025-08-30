@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
@@ -8,509 +8,129 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    
 :root{
-  --bg:#050505;         /* Noir spatial profond */
-  --bg-2:#0b1120;       /* Bleu spatial sombre */
-  --primary:#00d9ff;    /* Bleu cyan néon (style futuriste/NASA) */
-  --text:#e2e8f0;       /* Gris très clair (lisible sur fond sombre) */
-  --muted:#94a3b8;      /* Gris doux métallique */
-  --card:#111827;       /* Bleu acier pour cartes */
+  --bg:#050505;
+  --bg-2:#0b1120;
+  --primary:#00d9ff;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+  --card:#111827;
   --maxw:1100px;
-  --shadow:0 10px 35px rgba(0,255,255,.25); /* Lueur bleutée */
+  --shadow:0 10px 35px rgba(0,255,255,.25);
   --radius:22px;
-  --green:#00ffa6;      /* Vert néon pour validations */
+  --green:#00ffa6;
 }
 *, *::before, *::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Poppins",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
 html{scroll-behavior:smooth}
-body{font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;color:var(--text);background:var(--bg); line-height:1.6;}
 
-/* HEADER + NAV */
-.topbar{position:sticky;top:0;z-index:50;background:var(--primary);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;padding:10px 18px;}
-.nav{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;align-items:center;justify-content:flex-start; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
-.nav::-webkit-scrollbar {display:none;}
-.nav a{color:#fff;text-decoration:none;font-weight:700;flex-shrink:0;}
-.nav a:hover{text-decoration:underline}
-
-/* Bouton hamburger (mobile) */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:50;
+  background:var(--bg-2);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 22px;border-bottom:1px solid #1f2937;
+  box-shadow:0 5px 20px rgba(0,0,0,.4);
 }
+header h1{font-size:20px;font-weight:700;color:var(--primary);}
+.nav{display:flex;gap:28px;}
+.nav a{color:var(--text);text-decoration:none;font-weight:600;position:relative;}
+.nav a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:.3s}
+.nav a:hover::after{width:100%}
+
+/* HERO */
+.hero{max-width:var(--maxw);margin:auto;text-align:center;padding:90px 20px 70px;}
+.hero img{width:220px;height:220px;border-radius:50%;border:3px solid var(--primary);box-shadow:var(--shadow);}
+.hero h2{margin-top:20px;font-size:clamp(28px,6vw,40px);font-weight:700;}
+.hero p{margin-top:8px;font-size:clamp(16px,4vw,20px);color:var(--muted);}
+.hero .cta{margin-top:22px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.hero .cta a{padding:12px 24px;background:var(--primary);color:#000;font-weight:700;border-radius:12px;text-decoration:none;transition:.3s;}
+.hero .cta a:hover{transform:scale(1.05);filter:brightness(1.1);}
 
 /* SECTIONS */
-section{padding:72px 22px;scroll-margin-top:120px}
-.wrap{max-width:var(--maxw);margin:auto}
-
-/* HOME */
-#home{padding-top:90px;padding-bottom:64px}
-.hero{display:flex;flex-direction:column;align-items:center;text-align:center}
-.hero .img{width:clamp(250px,60vw,350px);height:auto;border-radius:50%;margin-bottom:10px}
-hr.sep{width:min(560px,90%);border:0;height:1px;background:linear-gradient(90deg,transparent,#ffffff85,transparent);margin:12px auto;}
-h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
-.role{font-size:clamp(16px,4vw,22px);font-weight:700;color:#fff;margin-bottom:10px;}
-.icons{display:flex;gap:20px;justify-content:center;margin:24px 0;flex-wrap:wrap;}
-.icon{width:56px;height:56px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#160a33;box-shadow:var(--shadow);transition:transform .15s ease}
-.icon:hover{transform:translateY(-3px)}
-.icon img{width:28px;height:28px}
-.email{color:#fff;text-decoration:none;font-weight:700;font-size:1.3em}
-.email:hover{text-decoration:underline}
+section{padding:70px 20px;}
+section h3{text-align:center;font-size:clamp(24px,5vw,32px);font-weight:700;margin-bottom:40px;color:var(--primary);}
 
 /* ABOUT */
-.about-card{background:#efeff3;color:#000;border-radius:24px;padding:28px;box-shadow:var(--shadow);max-width:900px;margin:0 auto}
-.about-card p,.about-card li{color:#000;line-height:1.7;font-size:clamp(16px,2.5vw,18px);margin-bottom:12px}
-.about-card strong{font-weight:700}
-.about-card ul{margin:8px 0 0 18px;padding-left:10px}
+.about-card{background:var(--card);padding:28px;border-radius:var(--radius);box-shadow:var(--shadow);max-width:800px;margin:auto;text-align:center;}
+.about-card p{margin-bottom:12px;font-size:18px;}
 
 /* TECHNOLOGIES */
-#tech{background:var(--bg-2)}
-.tech-wrap{max-width:var(--maxw);margin:auto;text-align:center}
-.tech-title{font-size:clamp(24px,5vw,28px);font-weight:700;margin-bottom:24px}
-.tech-grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));align-items:flex-start}
-.tech-item{display:flex;flex-direction:column;align-items:center;gap:10px}
-.tech-logo{width:80px;height:80px;border-radius:18px;background:#0c0720;display:grid;place-items:center;box-shadow:var(--shadow);overflow:hidden}
-.tech-logo img{width:56px;height:56px;object-fit:contain;display:block}
-.tech-item span{font-weight:700;font-size:14px;}
-.concept{width:80px;height:80px;border-radius:18px;display:grid;place-items:center;font-weight:800;color:#fff;box-shadow:var(--shadow)}
-.c-mvvm{background:linear-gradient(135deg,#ff4da1,#7f57ff)}
-.c-mvc{background:linear-gradient(135deg,#00c2ff,#0066ff)}
-.c-clean{background:linear-gradient(135deg,#34d399,#059669)}
-.github-white{filter:invert(1)}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:24px;max-width:var(--maxw);margin:auto;}
+.tech-item{background:var(--card);border-radius:16px;padding:20px;text-align:center;box-shadow:var(--shadow);transition:.3s;}
+.tech-item:hover{transform:translateY(-4px);box-shadow:0 15px 40px rgba(0,217,255,.3);}
+.tech-item img{width:50px;height:50px;object-fit:contain;margin-bottom:10px;}
+.tech-item span{font-weight:700;font-size:15px;}
 
 /* PROJECTS */
-#projects{background:#140a2e}
-.projects-wrap{max-width:var(--maxw);margin:auto}
-.projects-title{font-size:clamp(26px,6vw,32px);font-weight:800;text-align:center;margin-bottom:26px}
-.project-card{background:#efeff3;color:#111;border-radius:26px;box-shadow:var(--shadow);padding:28px 26px;margin:0 auto 28px auto;max-width:1000px}
-.project-head{background:#230f55;color:#fff;border-radius:12px;font-weight:800;padding:14px 20px;text-align:center;margin-bottom:18px;font-size:clamp(18px,4vw,22px);line-height:1.2;}
-.tech-badges{display:flex;gap:20px;justify-content:center;align-items:center;margin:18px 0 8px;flex-wrap:wrap;}
-.badge{display:flex;flex-direction:column;gap:10px;align-items:center}
-.badge img{width:50px;height:50px;object-fit:contain}
-.badge span{font-weight:800;font-size:14px;}
-.badge--xl img{width:70px;height:70px}
-.badge--xl span{font-size:16px}
-.project-body{margin-top:16px}
-.project-body p{line-height:1.7;font-size:clamp(16px,2.5vw,18px);margin-bottom:10px}
-.project-body strong{font-weight:800}
-.key-title{display:flex;align-items:center;gap:8px;font-weight:900;margin:18px 0 10px;font-size:clamp(18px,4vw,22px);}
-.key-list{margin-left:18px}
-.key-list li{margin:10px 0;line-height:1.7;font-size:clamp(16px,2.5vw,18px);list-style:none;position:relative;padding-left:28px}
-.key-list li::before{content:"✔️";position:absolute;left:0;top:0;transform:translateY(1px);color:var(--green);}
-.sub-title{font-weight:900;margin:16px 0 8px;font-size:18px;}
-.stack-list{margin:0 0 10px 22px;padding-left:16px;color:#111}
-.stack-list li{margin:6px 0;line-height:1.6;font-size:18px;}
+.project-card{background:var(--card);padding:26px;border-radius:var(--radius);box-shadow:var(--shadow);max-width:850px;margin:0 auto 30px;transition:.3s;}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 15px 40px rgba(0,217,255,.3);}
+.project-card h4{text-align:center;font-size:20px;margin-bottom:16px;color:var(--primary);}
+.project-card p{font-size:17px;color:var(--text);}
 
-/* YouTube */
-.video-container{position:relative;width:min(900px,100%);padding-top:56.25%;height:0;margin:18px auto;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:#000;}
-.video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block;}
-
-/* FEEDBACKS */
-#feedbacks{background:var(--bg-2);}
-.feedbacks-wrap{max-width:var(--maxw);margin:auto;}
-.feedbacks-title{font-size:clamp(26px,6vw,32px);font-weight:800;text-align:center;margin-bottom:22px;}
-.pdf-card{background:#0e0725;border-radius:20px;box-shadow:var(--shadow);padding:14px;overflow:hidden;}
-.pdf-frame{width:100%;height:70vh;min-height:460px;border:0;display:block;background:#111;border-radius:12px;}
-.pdf-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:12px;}
-.btn{background:var(--primary);color:#fff;text-decoration:none;font-weight:700;padding:10px 16px;border-radius:12px;box-shadow:var(--shadow);}
-.btn:hover{filter:brightness(1.05);}
-
-/* Process card */
-.process-card{margin-top:26px;background:#fff;color:#111;border-radius:20px;box-shadow:var(--shadow);padding:22px;}
-.process-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:start;}
-.process-img{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
-.process-img img{display:block;width:100%;height:auto;}
-.process-title{display:flex;align-items:center;gap:10px;font-weight:900;font-size:26px;margin-bottom:10px;}
-.process-step{line-height:1.8;font-size:clamp(16px,2.5vw,18px);color:#222;margin:10px 0;}
-.process-cta{margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-weight:700;}
-.cta-badges{display:flex;gap:12px;flex-wrap:wrap;}
-.cta-btn{background:var(--primary);color:#fff;text-decoration:none;font-weight:800;padding:10px 16px;border-radius:12px;box-shadow:var(--shadow);}
-.cta-btn:hover{filter:brightness(1.05);}
-
-/* SERVICES */
-#services{padding:40px 0;}
-.services-title{text-align:center;font-size:32px;font-weight:900;margin-bottom:30px;color:#fff;}
-.service-card{text-align:center;padding:20px;border-radius:12px;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,0.15);}
-.service-card h3{margin-bottom:18px;font-size:24px;font-weight:800;background:#2c0055;color:white;padding:10px;border-radius:8px;}
-.service-card p{font-size:17px;margin-bottom:12px;}
-.service-cta-btn{display:inline-block;background-color:#e60073;color:white;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;font-size:18px;box-shadow:0 8px 20px rgba(0,0,0,0.25);}
-
-/* MEDIA QUERIES POUR LA MOBILITÉ */
-@media (max-width:960px){
-  .process-grid{grid-template-columns:1fr;}
-}
-@media (max-width:768px){
-  .menu-toggle{display:block;}
-  .nav{display:none;flex-direction:column;gap:12px;background:var(--primary);position:absolute;top:60px;left:0;right:0;padding:12px 18px;}
-  .nav.active{display:flex;}
-  section{padding:40px 16px;scroll-margin-top:80px;}
-  h1.name{font-size:clamp(24px,7vw,36px);}
-  .role{font-size:clamp(16px,4vw,20px);}
-  .icons{gap:15px;}
-  .icon{width:50px;height:50px;}
-  .icon img{width:24px;height:24px;}
-  .email{font-size:1em;}
-  .tech-title,.projects-title,.feedbacks-title{font-size:28px;}
-  .tech-grid{grid-template-columns:repeat(auto-fit,minmax(100px,1fr));}
-  .tech-logo{width:70px;height:70px;border-radius:14px;}
-  .tech-logo img{width:48px;height:48px;}
-  .concept{width:70px;height:70px;border-radius:14px;}
-  .badge img{width:40px;height:40px;}
-  .badge--xl img{width:60px;height:60px;}
-  .project-card,.about-card{padding:20px;}
-}
-@media (max-width:560px){
-  .pdf-frame{height:60vh;min-height:360px;}
-  .about-card p,.about-card li,.project-body p{font-size:16px;}
-  .project-head{font-size:16px;}
-  .key-title{font-size:18px;}
-  .key-list li{font-size:16px;}
-  .sub-title{font-size:16px;}
-  .stack-list li{font-size:16px;}
-}
-
-/* ✅ Animation dynamique (mobile + PC) */
-.hero .img {
-  animation: pulse 6s infinite ease-in-out;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-/* ✅ Version PC/Laptop uniquement */
-@media (min-width: 1024px) {
-  .hero .img {
-    width: 480px;
-    margin-bottom: 0;
-  }
-
-  h1.name {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 30px;
-  }
-
-  hr.sep {
-    margin: 2px auto;
-    height: 0.5px;
-  }
-
-  .role {
-    margin-top: 4px;
-    margin-bottom: 6px;
-  }
-
-  /* Alignement de la topbar à gauche */
-  .topbar {
-    justify-content: flex-start;
-  }
-
-  .menu-toggle {
-    margin-right: 20px;
-  }
-
-  .nav {
-    margin-left: 0;
-    margin-right: auto;
-    justify-content: flex-start;
-  }
-}
-
-
-
-
-     
+/* FOOTER */
+footer{padding:26px;text-align:center;font-size:14px;color:var(--muted);border-top:1px solid #1f2937;margin-top:60px;}
   </style>
 </head>
 <body>
-  <header class="topbar">
-     <button class="menu-toggle" aria-label="Menu">&#9776;</button>
-    <nav class="nav">
-      <a href="#home">Homepage</a>
-      <a href="#about">About</a>
-      <a href="#tech">Technologies</a>
-      <a href="#projects">Projects</a>
-      <a href="#feedbacks">Feedbacks</a>
-      <a href="#services">Services</a>
-      <a href="#cv">Download CV</a>
-    </nav>
-  </header>
-  <section id="home">
-    <div class="wrap hero">
-      <img class="img" src="portfolio10.png" alt="Photo de profil" />
-      <hr class="sep" />
-      <h1 class="name">Ali Mahdjoub</h1>
-      <hr class="sep" />
-      <div class="role">Mobile Developer</div>
-      <div class="icons">
-        <a class="icon" href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-        </a>
-        <a class="icon" href="https://github.com" target="_blank" aria-label="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-        </a>
-        <a class="icon" href="mailto:alimahdjoub077@gmail.com" aria-label="Email">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-        </a>
-        <a class="icon" href="https://wa.me/2130671236181" target="_blank" aria-label="WhatsApp">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-        </a>
-      </div>
-      <a class="email" href="mailto:alimahdjoub077@gmail.com">alimahdjoub077@gmail.com</a>
-    </div>
-  </section>
-  <section id="about">
-    <div class="wrap">
-      <div class="about-card">
-        <p><strong>Hello!</strong> My name is <strong>Ali Mahdjoub</strong> and I'm a <strong>Mobile Developer</strong> with <strong>hands-on experience</strong> through internships.</p>
-        <p>I have the following degree:</p>
-        <ul>
-          <li><strong>Master’s Degree in Information Systems Management – Software Engineering</strong> — CESI EXIA Algeria | <strong>Graduated in 2025</strong>.</li>
-        </ul>
-        <p>I’m focused on building <strong>Native Android Applications</strong> using <strong>Java</strong> and <strong>Kotlin</strong>, with a <strong>strong understanding</strong> of software engineering principles.</p>
-      </div>
-    </div>
-  </section>
-  <section id="tech">
-    <div class="tech-wrap">
-      <h2 class="tech-title">Technologies</h2>
-      <div class="tech-grid">
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android logo" />
-          </div>
-          <span>Android</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java logo" />
-          </div>
-          <span>Java</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin logo" />
-          </div>
-          <span>Kotlin</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase logo" />
-          </div>
-          <span>Firebase</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#000000;">
-            <img class="github-white" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub logo" />
-          </div>
-          <span>GitHub</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original.svg" alt="Gradle logo" />
-          </div>
-          <span>Gradle</span>
-        </div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn-icons-png.flaticon.com/512/873/873120.png" alt="Material Design logo" />
-          </div>
-          <span>Material Design</span>
-        </div>
-        <div class="tech-item"><div class="concept c-mvvm">MVVM</div><span>MVVM</span></div>
-        <div class="tech-item"><div class="concept c-mvc">MVC</div><span>MVC</span></div>
-        <div class="tech-item"><div class="concept c-clean">Clean</div><span>Clean Architecture</span></div>
-        <div class="tech-item">
-          <div class="tech-logo" style="background:#ffffff;">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" alt="Trello logo" />
-          </div>
-          <span>Trello</span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="projects">
-    <div class="projects-wrap">
-      <h2 class="projects-title">Projects</h2>
-      <article class="project-card">
-        <div class="project-head">✨ Travel & Tourism App ✨</div>
-        <div class="tech-badges">
-          <div class="badge badge--xl">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">
-            <span>Android</span>
-          </div>
-          <div class="badge badge--xl">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-            <span>Java</span>
-          </div>
-        </div>
-        <div class="project-body">
-          <p><strong>Travel & Tourism App</strong> is a full-featured <strong>Android</strong> mobile application I developed from scratch to digitalize both client services and internal operations for a modern travel agency. This multifunctional app integrates booking, invoicing, HR, finance, maps, and communication into one seamless mobile experience.</p>
-          <div class="key-title">✨ Key Features </div>
-          <ul class="key-list">
-            <li><strong>Authentication & User Management</strong> – Login/signup, profile updates (name, email, DOB, password)</li>
-            <li><strong>Clients & Services Modules</strong> – Manage individual and corporate clients, services, filtering, statistics & graphs</li>
-            <li><strong>Sales & Invoicing</strong> – Track sales, generate invoices (PDF & Excel), view trends and comparisons</li>
-            <li><strong>Finance Management</strong> – Monitor salaries, expenses, and costs with financial charts and Excel export</li>
-            <li><strong>HR & Task Management</strong> – Employee profiles, task assignments, lifecycle tracking and planning</li>
-            <li><strong>Relations & Public Data Modules</strong> – Supplier, public relations, embassy databases, and event calendars</li>
-            <li><strong>Geolocation & Maps</strong> – Locate travel agencies using Google Maps API with satellite view</li>
-            <li><strong>Email Automation</strong> – Integrated SMTP for automatic email sending (booking confirmations, invoices, etc.)</li>
-          </ul>
-          <div class="sub-title">💻Technology:</div>
-          <ul class="stack-list">
-            <li>Android</li><li>Java</li><li>Firebase</li><li>Amadeus API</li><li>Google Maps API</li>
-            <li>SMTP</li><li>Clean Architecture</li><li>Material Design | XML | ConstraintLayout</li><li>Gradle | UML | OOP</li>
-          </ul>
-          <div class="sub-title">🛠️ Tools</div>
-          <ul class="stack-list">
-            <li>Android Studio</li><li>Trello</li><li>Canva</li><li>Figma</li><li>PlantUML</li>
-          </ul>
-          <div class="sub-title">⏱️ Agile Methodology</div>
-          <ul class="stack-list"><li>Agile-inspired workflow using Trello</li></ul>
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/mGakM_eFe7I" title="YouTube Shorts"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-          </div>
-      </article>
-      <article class="project-card">
-        <div class="project-head">✨ Well Management App ✨</div>
-        <div class="tech-badges">
-          <div class="badge badge--xl">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">
-            <span>Android</span>
-          </div>
-          <div class="badge badge--xl">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-            <span>Java</span>
-          </div>
-        </div>
-        <div class="project-body">
-          <p>A complete <strong>Android</strong> mobile solution I built from scratch using Java and Firebase, designed to support the digital management of oil wells, deposits, and field locations in industrial operations.</p>
-          <p>This app empowers field operators with tools for tracking, planning, and analyzing oil field resources with real-time maps, structured PDF reports, and an intuitive dashboard.</p>
-          <div class="key-title">✨ Key Features</div>
-          <ul class="key-list">
-            <li><strong>Authentication & Profiles</strong> – Secure login, signup, and profile updates</li>
-            <li><strong>Well Management Module</strong> – Create, update, delete, and search wells with filters by type</li>
-            <li><strong>Distance & Comparison Tool</strong> – Compare distances between wells and generate PDF reports</li>
-            <li><strong>Deposits Module</strong> – Register, categorize, and manage deposits per site</li>
-            <li><strong>Geolocation Module</strong> – Track live routes and destinations using Google Maps API</li>
-            <li><strong>PDF Export</strong> – Generate structured comparative reports for teams</li>
-            <li><strong>Dashboard UI</strong> – Clean and modern interface with user-friendly navigation</li>
-          </ul>
-          <div class="sub-title">💻 Technologies:</div>
-          <ul class="stack-list">
-            <li>Java</li><li>Firebase (Realtime DB + Auth)</li><li>Google Maps API</li><li>Structured PDF export</li>
-            <li>Clean UI/UX with ConstraintLayout</li><li>Material Design</li><li>OOP | UML</li><li>MVC Architecture</li>
-          </ul>
-          <div class="sub-title">🛠️ Tools</div>
-          <ul class="stack-list"><li>Android Studio</li><li>Figma | Canva</li><li>Trello</li><li>Visual Paradigm</li></ul>
-          <div class="sub-title">⏱️ Agile Methodology</div>
-          <ul class="stack-list"><li>Agile-inspired workflow using Trello</li></ul>
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/8yUZmP5BnpI" title="YouTube Shorts"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-<section id="feedbacks">
-  <div class="feedbacks-wrap">
-    <h2 class="feedbacks-title">Feedbacks</h2>
-    <div class="pdf-card">
-      <iframe
-        class="pdf-frame"
-        src="https://drive.google.com/file/d/1DmeSbar5Z-HAssmntGxS6ZLIAjnatD4X/preview">
-      </iframe>
-    </div>
-    <div class="process-card"
-     style="display: flex; flex-wrap: wrap; max-width: 1200px; margin: 160px auto 0; background: white; border-radius: 8px; overflow: hidden;">
-      <div class="process-img" style="flex: 1; min-width: 40%; max-width: 50%;">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=70"
-             alt="Modern silver laptop"
-             style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      </div>
-      <div style="flex: 1; padding: 20px; min-width: 50%;">
-        <div class="process-title">✨ How Does Look Like Working With Me?✨</div>
-        <p class="process-step">You send me a message explaining what you need.</p>
-        <p class="process-step">I ask a few questions to identify the problem and the best technical approach.</p>
-        <p class="process-step">I evaluate feature complexity × development time, then send you the price and deadline.</p>
-        <p class="process-step">If you decide to move forward, I send the contract and request the needed information.</p>
-        <p class="process-step">After signatures are collected, you transfer 50% and I send the first invoice.</p>
-        <p class="process-step">I start the development and send progress updates every 3 business days.</p>
-        <p class="process-step">When the app is complete, I deliver the files via Google Drive or upload to Play Store.</p>
-        <p class="process-step">You pay the remaining 50% and I send the second invoice.</p>
-       <p class="process-step">💻 Do you want to transform your idea into an app?</p>
-        <div class="process-cta" style="margin-top: 20px; text-align: center;">
-          <a class="cta-btn"
-             href="https://wa.me/213671236181"
-             target="_blank"
-             aria-label="WhatsApp"
-             style="display: inline-block; background-color: #e60073; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: bold;">
-            Click Here
-          </a>
-        </div>
-      </div>
-    </div>
+
+<header>
+  <h1>Ali Mahdjoub</h1>
+  <nav class="nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#tech">Technologies</a>
+    <a href="#projects">Projects</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <img src="portfolio10.png" alt="Photo de profil">
+  <h2>Mobile Developer</h2>
+  <p>Passionate about building clean and scalable Android apps.</p>
+  <div class="cta">
+    <a href="mailto:alimahdjoub077@gmail.com">📧 Contact</a>
+    <a href="#projects">📂 View Projects</a>
   </div>
 </section>
-<section id="services" style="padding:40px 0;">
-  <div class="wrap">
-     
-    <h2 style="text-align:center; font-size:32px; font-weight:900; margin-bottom:30px; color:#fff;">
-      Services
-    </h2>
-    <article class="project-card" style="text-align:center; padding:20px; border-radius:12px; background:#fff; box-shadow:0 8px 20px rgba(0,0,0,0.15);">
-       
-      <h3 style="margin-bottom:18px; font-size:24px; font-weight:800; background:#2c0055; color:white; padding:10px; border-radius:8px;">
-        ✨ Apps Development Project (Android) ✨
-      </h3>
-      <div style="margin:20px 0;">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg"
-             alt="Android" width="70" height="70">
-        <p style="font-size:18px; font-weight:600; margin-top:8px;">Android</p>
-      </div>
-      <p style="font-size:17px; margin-bottom:12px;">
-        📱 I develop personalized and custom-made apps for you or your business.
-      </p>
-      <p style="font-size:17px; margin-bottom:12px;">
-        🚀 Make your ideas come true, into an app today!
-      </p>
-      <p style="font-size:17px; margin-bottom:20px;">
-        🔥 Send me a message!
-      </p>
-      <a href="https://wa.me/213671236181"
-         target="_blank"
-         style="display:inline-block; background-color:#e60073; color:white; padding:14px 28px; border-radius:12px; text-decoration:none; font-weight:700; font-size:18px; box-shadow:0 8px 20px rgba(0,0,0,0.25);">
-        Click Here
-      </a>
-    </article>
+
+<section id="about">
+  <h3>About Me</h3>
+  <div class="about-card">
+    <p><strong>Hello!</strong> I'm <strong>Ali Mahdjoub</strong>, a Mobile Developer specialized in Android (Java & Kotlin).</p>
+    <p>Graduated with a <strong>Master's Degree in Information Systems Management</strong> (CESI EXIA Algeria – 2025).</p>
+    <p>I build functional, user-friendly apps with clean architecture and great UI/UX.</p>
   </div>
 </section>
-  <script>
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.nav');
-  const links = document.querySelectorAll('.nav a');
 
-  // Ouvrir/fermer menu au clic sur hamburger
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
+<section id="tech">
+  <h3>Technologies</h3>
+  <div class="tech-grid">
+    <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg"><span>Android</span></div>
+    <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"><span>Java</span></div>
+    <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"><span>Kotlin</span></div>
+    <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"><span>Firebase</span></div>
+    <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"><span>GitHub</span></div>
+    <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original.svg"><span>Gradle</span></div>
+  </div>
+</section>
 
-  // Fermer menu quand on clique sur un lien
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-    });
-  });
-</script>
+<section id="projects">
+  <h3>Projects</h3>
+  <article class="project-card">
+    <h4>Travel & Tourism App</h4>
+    <p>A full-featured Android application for travel agencies, integrating booking, invoicing, HR, finance, maps, and client communication.</p>
+  </article>
+
+  <article class="project-card">
+    <h4>Well Management App</h4>
+    <p>An industrial app for tracking oil wells, distances, and deposits with PDF reporting and Google Maps integration.</p>
+  </article>
+</section>
+
+<footer>
+  © 2025 Ali Mahdjoub – All rights reserved.
+</footer>
+
 </body>
-</html>
+  </html>
