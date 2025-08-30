@@ -167,9 +167,20 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
 
 @media (min-width: 1024px) {
   .hero .img {
-    width: 460px;     
+  width: 500px;   
     margin-bottom: 5px; 
   }
+
+.hero .img {
+  animation: pulse 6s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); } /* zoom léger */
+}
+
+  
 
   h1.name {
     font-size: 30px;   
@@ -189,11 +200,11 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
 }
 @media (min-width: 1024px) {
   .topbar {
-    justify-content: flex-start; /* contenu collé à gauche */
+    justify-content: flex-start; 
   }
 
   .menu-toggle {
-    margin-right: 20px; /* espace entre burger et menu */
+    margin-right: 20px;
   }
 
   .nav {
@@ -319,7 +330,7 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
     <div class="projects-wrap">
       <h2 class="projects-title">Projects</h2>
       <article class="project-card">
-        <div class="project-head">✨ Travel & Tourism App</div>
+        <div class="project-head">✨ Travel & Tourism App ✨</div>
         <div class="tech-badges">
           <div class="badge badge--xl">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">
@@ -332,7 +343,7 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
         </div>
         <div class="project-body">
           <p><strong>Travel & Tourism App</strong> is a full-featured <strong>Android</strong> mobile application I developed from scratch to digitalize both client services and internal operations for a modern travel agency. This multifunctional app integrates booking, invoicing, HR, finance, maps, and communication into one seamless mobile experience.</p>
-          <div class="key-title">✨ Key Features</div>
+          <div class="key-title">✨ Key Features </div>
           <ul class="key-list">
             <li><strong>Authentication & User Management</strong> – Login/signup, profile updates (name, email, DOB, password)</li>
             <li><strong>Clients & Services Modules</strong> – Manage individual and corporate clients, services, filtering, statistics & graphs</li>
@@ -361,7 +372,7 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
           </div>
       </article>
       <article class="project-card">
-        <div class="project-head">✨ Well Management App</div>
+        <div class="project-head">✨ Well Management App ✨</div>
         <div class="tech-badges">
           <div class="badge badge--xl">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android">
