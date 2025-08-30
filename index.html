@@ -166,6 +166,7 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
 }
 
 
+/* ✅ Animation dynamique (mobile + PC) */
 .hero .img {
   animation: pulse 6s infinite ease-in-out;
 }
@@ -178,13 +179,13 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
 /* ✅ Version PC/Laptop uniquement */
 @media (min-width: 1024px) {
   .hero .img {
-    width: 400px;       /* assez grand mais pas énorme */
-    margin-bottom: 0;   /* supprime l’espace inutile */
+    width: 400px;       /* assez grand mais pas trop */
+    margin-bottom: 0;   /* enlève l’espace inutile */
   }
 
   h1.name {
-    font-size: 26px;    /* plus petit pour gagner de la place */
-    margin: 4px 0;
+    font-size: 26px;    
+    margin: 4px 0;      /* réduit l’espace autour du nom */
   }
 
   .role {
@@ -193,16 +194,18 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
   }
 
   hr.sep {
-    display: none;      /* supprime les traits qui ajoutaient du vide */
+    display: none;      /* supprime les séparateurs pour éviter le vide */
   }
 
   .icons {
-    margin: 12px 0;
+    margin: 12px 0;     /* réduit l’espace autour des icônes */
   }
 
   .email {
     font-size: 1.1em;
   }
+}
+
 
   /* Alignement de la topbar à gauche */
   .topbar {
