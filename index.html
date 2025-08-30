@@ -165,20 +165,35 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
   .stack-list li{font-size:16px;}
 }
 
-@media (min-width: 1024px) {
-  .hero .img {
-  width: 500px;   
-    margin-bottom: 5px; 
-  }
-
+/* ✅ Animation dynamique (mobile + PC) */
 .hero .img {
   animation: pulse 6s infinite ease-in-out;
 }
 
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); } /* zoom léger */
+  50% { transform: scale(1.05); } 
 }
+
+/* ✅ Version PC/Laptop uniquement */
+@media (min-width: 1024px) {
+  .hero .img {
+    width: 480px;       
+    margin-bottom: 0; 
+  }
+
+  h1.name {
+    margin-top: 5px;   
+    margin-bottom: 5px; 
+    font-size: 30px;    
+  }
+
+  hr.sep {
+    margin: 2px auto;   
+    height: 0.5px;
+  }
+}
+
 
   
 
