@@ -179,47 +179,42 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
 /* ✅ Version PC/Laptop uniquement */
 @media (min-width: 1024px) {
   .hero .img {
-    width: 400px;       /* assez grand mais pas trop */
-    margin-bottom: 0;   /* enlève l’espace inutile */
+    width: 480px;
+    margin-bottom: 0;
   }
 
   h1.name {
-    font-size: 26px;    
-    margin: 4px 0;      /* réduit l’espace autour du nom */
-  }
-
-  .role {
-    font-size: 18px;
-    margin: 2px 0 6px 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 30px;
   }
 
   hr.sep {
-    display: none;      /* supprime les séparateurs pour éviter le vide */
+    margin: 2px auto;
+    height: 0.5px;
   }
 
-  .icons {
-    margin: 12px 0;     /* réduit l’espace autour des icônes */
+  .role {
+    margin-top: 4px;
+    margin-bottom: 6px;
   }
-
-  .email {
-    font-size: 1.1em;
-  }
-}
-
 
   /* Alignement de la topbar à gauche */
   .topbar {
     justify-content: flex-start;
   }
+
   .menu-toggle {
     margin-right: 20px;
   }
+
   .nav {
     margin-left: 0;
     margin-right: auto;
     justify-content: flex-start;
   }
 }
+
 
 
 
