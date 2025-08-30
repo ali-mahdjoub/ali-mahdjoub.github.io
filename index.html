@@ -165,66 +165,55 @@ h1.name{font-size:clamp(24px,5vw,40px);margin:0;}
   .stack-list li{font-size:16px;}
 }
 
-/* ✅ Animation dynamique (mobile + PC) */
+
 .hero .img {
   animation: pulse 6s infinite ease-in-out;
 }
 
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); } 
+  50% { transform: scale(1.05); }
 }
 
 /* ✅ Version PC/Laptop uniquement */
 @media (min-width: 1024px) {
   .hero .img {
-    width: 480px;       
-    margin-bottom: 0; 
+    width: 400px;       /* assez grand mais pas énorme */
+    margin-bottom: 0;   /* supprime l’espace inutile */
   }
 
   h1.name {
-    margin-top: 5px;   
-    margin-bottom: 5px; 
-    font-size: 30px;    
-  }
-
-  hr.sep {
-    margin: 2px auto;   
-    height: 0.5px;
-  }
-}
-
-
-  
-
-  h1.name {
-    font-size: 30px;   
-    margin-top: 5px;   
-    margin-bottom: 5px;
-  }
-
-  hr.sep {
-    margin: 2px auto;  
-    height: 0.5px;  
+    font-size: 26px;    /* plus petit pour gagner de la place */
+    margin: 4px 0;
   }
 
   .role {
-    margin-top: 4px;   
-    margin-bottom: 6px;
-  }
-}
-@media (min-width: 1024px) {
-  .topbar {
-    justify-content: flex-start; 
+    font-size: 18px;
+    margin: 2px 0 6px 0;
   }
 
+  hr.sep {
+    display: none;      /* supprime les traits qui ajoutaient du vide */
+  }
+
+  .icons {
+    margin: 12px 0;
+  }
+
+  .email {
+    font-size: 1.1em;
+  }
+
+  /* Alignement de la topbar à gauche */
+  .topbar {
+    justify-content: flex-start;
+  }
   .menu-toggle {
     margin-right: 20px;
   }
-
   .nav {
-    margin-left: 0;          
-    margin-right: auto;      
+    margin-left: 0;
+    margin-right: auto;
     justify-content: flex-start;
   }
 }
